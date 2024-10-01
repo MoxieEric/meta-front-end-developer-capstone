@@ -18,7 +18,15 @@ header, footer {
 	justify-content: space-evenly;
 	gap: 0;
 }
-
+header > nav ul  {
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+}
+nav a {
+	padding: 2px 4px;
+}
 main {
 	display: flex;
 	flex-direction: column;
