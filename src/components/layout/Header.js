@@ -1,4 +1,4 @@
-import navigationConfig from '../config/navigationConfig'
+import navigationConfig from '../../config/navigationConfig'
 
 const Header = () => {
 	return (

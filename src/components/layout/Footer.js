@@ -1,11 +1,12 @@
-import navigationConfig from '../config/navigationConfig'
+import navigationConfig from '../../config/navigationConfig'
 
 const Footer = () => {
 	return (
 		<footer className='App-Footer'>
-			<img src='/little-lemon-logo.svg' alt='Little Lemon Logo' />
-			<p>&copy; Little Lemon </p>
-
+			<div>
+				<img src='/little-lemon-logo.svg' alt='Little Lemon Logo' />
+				<p>&copy; Little Lemon </p>
+			</div>
 			<nav>
 				<ul>
 					{navigationConfig.main.map((link) => (
@@ -19,9 +20,7 @@ const Footer = () => {
 			</nav>
 			<div>
 				<h2>Get in Touch</h2>
-				<p>
-					<tel>+1 000-000-0000</tel>
-				</p>
+				<p>+1 000-000-0000</p>
 				<p>123 Some St. Boulder, CO</p>
 			</div>
 			<div>

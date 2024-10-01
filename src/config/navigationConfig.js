@@ -15,7 +15,10 @@ const navigationConfig = {
 		{
 			label: 'Reservations',
 			url: null,
-			onClick: () => null,
+			onClick: () => {
+				const modal = document.getElementById('booking-modal')
+				modal.showModal()
+			},
 		},
 		{
 			label: 'Login',

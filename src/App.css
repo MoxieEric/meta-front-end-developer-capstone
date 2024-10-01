@@ -38,3 +38,22 @@ main > section {
 	padding: 2rem;
 	background: #DDD;
 }
+
+.modal {
+	width: 100%;
+	max-width: 36rem;
+	margin: 0;
+	padding: 0;
+    position: fixed;
+    top: 2rem;
+    left: calc(50% - 18rem);
+	background: transparent;
+}
+.modal::backdrop {
+	background: rgba(0, 0, 0, .6);
+}
+.modal-container {
+	padding: 2rem;
+	background: white;
+	border-radius: 1rem;
+}

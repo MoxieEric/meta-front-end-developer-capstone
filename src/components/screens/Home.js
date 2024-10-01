@@ -1,6 +1,6 @@
-function Main() {
+const Home = () => {
 	return (
-		<main>
+		<>
 			<section>
 				<header>
 					<h1>Little Lemon</h1>
@@ -21,8 +21,7 @@ function Main() {
 					<h1>About</h1>
 				</header>
 			</section>
-		</main>
+		</>
 	)
 }
-
-export default Main
+export default Home
