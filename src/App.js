@@ -1,16 +1,35 @@
 import './App.css'
+import Footer from './components/Footer'
+import Header from './components/Header'
 
 function App() {
 	return (
-		<div className='App'>
-			<header className='App-header'>
-				<h1 data-testid='homepage__heading1'>Capstone Project</h1>
-				<h2>Little Lemon Reservation System</h2>
-			</header>
+		<>
+			<Header />
 			<main>
-				<p>Start your engines...</p>
+				<section>
+					<header>
+						<h1>Little Lemon</h1>
+					</header>
+				</section>
+				<section>
+					<header>
+						<h1>Specials</h1>
+					</header>
+				</section>
+				<section>
+					<header>
+						<h1>Testimonials</h1>
+					</header>
+				</section>
+				<section>
+					<header>
+						<h1>About</h1>
+					</header>
+				</section>
 			</main>
-		</div>
+			<Footer />
+		</>
 	)
 }
 
