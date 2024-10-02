@@ -8,7 +8,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false)
 	return (
-		<header className='container'>
+		<header className='global-header container'>
 			<Link to='/'>
 				<img
 					src='/little-lemon-logo.svg'

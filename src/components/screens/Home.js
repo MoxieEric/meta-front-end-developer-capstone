@@ -1,26 +1,29 @@
+import PageSection from '../layout/PageSection'
+
 const Home = () => {
 	return (
 		<>
-			<section>
+			<PageSection id='hero' background='primary'>
 				<header>
 					<h1>Little Lemon</h1>
+					<h2>Boulder</h2>
 				</header>
-			</section>
-			<section>
+			</PageSection>
+			<PageSection id='specials' background='white'>
 				<header>
 					<h1>Specials</h1>
 				</header>
-			</section>
-			<section>
+			</PageSection>
+			<PageSection id='testimonials' background='light'>
 				<header>
 					<h1>Testimonials</h1>
 				</header>
-			</section>
-			<section>
+			</PageSection>
+			<PageSection id='about' background='primary'>
 				<header>
 					<h1>About</h1>
 				</header>
-			</section>
+			</PageSection>
 		</>
 	)
 }

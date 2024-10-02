@@ -69,7 +69,7 @@ html, body {
 	font-weight: 500;
 }
 
-header {
+.global-header {
 	display: flex;
 	align-items: center;
 	width: 100%;
@@ -130,14 +130,14 @@ header {
 	}
 }
 
-#root {
+/* #root {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: 0;
 	align-items: start;
 	justify-content: flex-start;
-}
+} */
 
 main {
 	display: flex;
@@ -145,10 +145,13 @@ main {
 	gap: 0;
 	align-items: start;
 	justify-content: flex-start;
+	width: 100%;
 }
-main > section {
+
+.page-section {
 	padding: 2rem;
-	background: #DDD;
+	width: 100%;
+	display: flex;
 }
 
 .modal {
