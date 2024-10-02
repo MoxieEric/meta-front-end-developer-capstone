@@ -18,18 +18,40 @@ const navigationConfig = {
 			onClick: () => null,
 		},
 	],
+	footer: [
+		{
+			label: 'Home',
+			url: '/',
+		},
+		{
+			label: 'Menu',
+			url: '/menu',
+		},
+		{
+			label: 'Order Online',
+			url: '/order',
+		},
+		{
+			label: 'About',
+			url: '/about',
+		},
+		{
+			label: 'Login',
+			url: '/login',
+		},
+	],
 	socials: [
 		{
 			label: 'Facebook',
-			url: null,
+			url: 'https://facebook.com',
 		},
 		{
 			label: 'Instagram',
-			url: null,
+			url: 'https://instagram.com',
 		},
 		{
 			label: 'TikTok',
-			url: null,
+			url: 'https://tiktok.com',
 		},
 	],
 }

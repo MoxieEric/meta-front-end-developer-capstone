@@ -1,5 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Markazi+Text:wght@400..700&display=swap');
 
+/* Vars */
+:root {
+	/* Colors */
+	--color-primary: #495E57;
+	--color-secondary: #F4CE14;
+	--color-dark: #333333;
+	--color-medium: #999999;
+	--color-light: #EDEFEE;
+	--color-peach: #EE9972;
+	--color-tan: #FBDABB;
+
+	/* font size */
+	--font-serif: 'Markazi Text', Georgia, serif;
+	--font-sans: 'Karla', system-ui, sans-serif;
+
+	/* border radius */
+	--border-rounded: .5rem;
+	--border-md: .5rem;
+	--border-lg: 1rem;
+
+}
+
 html, body {
 	font-family: 'Karla', Arial, Helvetica, sans-serif;
 	font-size: 16px;
@@ -56,6 +78,58 @@ header {
 	margin: 0 auto;
 }
 
+/* Footer */
+.global-footer {
+	width: 100%;
+	padding: 2rem 1rem;
+	background-color: var(--color-light);
+	color: var(--color-dark)
+}
+.global-footer .container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	margin: 0 auto;
+	gap: 1rem;
+}
+
+.global-footer .column h2 {
+	width: 100%;
+	border-bottom: 1px solid var(--color-medium);
+}
+.global-footer .column {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: .25rem;
+	text-align: center;
+	width: 100%;
+}
+.global-footer .column a {
+	font-weight: 500;
+	padding: .125rem 0;
+	color: black;
+}
+.global-footer .column a:hover {
+	color: var(--color-primary);
+	/* text-decoration: underline; */
+}
+@media (min-width: 640px) {
+	.global-footer .container {
+		flex-direction: row;
+		align-items: start;
+		justify-content: space-between;
+	}
+	.global-footer .column {
+		align-items: start;
+		justify-content: flex-start;
+		text-align: left;
+	}
+}
+
 #root {
 	width: 100%;
 	display: flex;
@@ -64,14 +138,7 @@ header {
 	align-items: start;
 	justify-content: flex-start;
 }
-footer {
-	width: 100vw;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-evenly;
-	gap: 0;
-}
+
 main {
 	display: flex;
 	flex-direction: column;

@@ -41,7 +41,7 @@ const Header = () => {
 						: 'h-0 md:h-auto opacity-0 md:opacity-100'
 				)}
 			>
-				<ul className='flex flex-col md:flex-row gap-4 md:gap-3 items-center justify-end '>
+				<ul className='flex flex-col md:flex-row gap-4 items-center justify-end '>
 					{navigationConfig.main.map((link) => (
 						<li key={link.label} className='text-lg font-semibold'>
 							<NavLink
