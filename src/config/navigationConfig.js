@@ -1,10 +1,6 @@
 const navigationConfig = {
 	main: [
 		{
-			label: 'About',
-			url: '/about',
-		},
-		{
 			label: 'Menu',
 			url: '/menu',
 		},
@@ -13,16 +9,12 @@ const navigationConfig = {
 			url: '/order',
 		},
 		{
-			label: 'Reservations',
-			url: null,
-			onClick: () => {
-				const modal = document.getElementById('booking-modal')
-				modal.showModal()
-			},
+			label: 'About',
+			url: '/about',
 		},
 		{
 			label: 'Login',
-			url: null,
+			url: '/login',
 			onClick: () => null,
 		},
 	],
