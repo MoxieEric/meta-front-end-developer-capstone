@@ -2,12 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import reportWebVitals from './reportWebVitals'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import './reset.css'
-import './App.css'
+import './styles/app.css'
+import './styles/tailwind.min.css'
 import ErrorPage from './components/screens/Error'
 import App from './App'
 import Home from './components/screens/Home'
 import BookingConfirmation from './components/screens/BookingConfirmation'
+import Menu from './components/screens/Menu'
 
 const router = createBrowserRouter([
 	{
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
 			{
 				path: '/confirmed',
 				element: <BookingConfirmation />,
+			},
+			{
+				path: '/menu',
+				element: <Menu />,
 			},
 		],
 	},

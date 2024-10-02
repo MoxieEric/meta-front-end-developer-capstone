@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Markazi+Text:wght@400..700&display=swap');
+
+html, body {
+	font-family: 'Karla', Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	width: 100%;
+	min-width: 375px;
+}
+
+/* Typography */
+.display-title {
+	font-family: 'Markazi Text';
+	font-size: 4rem;
+	font-weight: 500;
+}
+.subtitle {
+	font-family: 'Markazi Text';
+	font-size: 2.5rem;
+	font-weight: 400;
+}
+.lead-text {
+	font-family: 'Karla';
+	font-size: 1.125rem;
+	font-weight: 500;
+}
+.section-title {
+	font-family: 'Karla';
+	font-size: 1.25rem;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+.category-title {
+	font-family: 'Karla';
+	font-size: 1rem;
+	font-weight: 800;
+	text-transform: capitalize;
+}
+.card-title {
+	font-family: 'Karla';
+	font-size: 1.125rem;
+	font-weight: 600;
+	text-transform: capitalize;
+}
+.highlight-text {
+	font-family: 'Karla';
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: space-between;
+	padding: 1rem;
+	margin: 0 auto;
+}
+
+#root {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	align-items: start;
+	justify-content: flex-start;
+}
+footer {
+	width: 100vw;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+	gap: 0;
+}
+main {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	align-items: start;
+	justify-content: flex-start;
+}
+main > section {
+	padding: 2rem;
+	background: #DDD;
+}
+
+.modal {
+	width: 100%;
+	max-width: 36rem;
+	margin: 0;
+	padding: 0;
+    position: fixed;
+    top: 2rem;
+    left: calc(50% - 18rem);
+	background: transparent;
+}
+.modal::backdrop {
+	background: rgba(0, 0, 0, .6);
+}
+.modal-container {
+	padding: 2rem;
+	background: white;
+	border-radius: 1rem;
+}
