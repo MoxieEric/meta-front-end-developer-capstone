@@ -1,9 +1,9 @@
-import Home from '../screens/Home'
+import { Outlet } from 'react-router-dom'
 
 function Main() {
 	return (
 		<main>
-			<Home />
+			<Outlet />
 		</main>
 	)
 }
