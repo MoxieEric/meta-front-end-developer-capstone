@@ -1,10 +1,13 @@
 import { useRouteError } from 'react-router-dom'
 import Header from '../layout/Header'
 import Footer from '../layout/Footer'
+import { useEffect } from 'react'
 
-export default function ErrorPage() {
+const ErrorPage = () => {
 	const error = useRouteError()
-	console.error(error)
+	useEffect(() => {
+		console.error('Routing error: ', error)
+	}, [error])
 
 	return (
 		<>
@@ -20,3 +23,5 @@ export default function ErrorPage() {
 		</>
 	)
 }
+
+export default ErrorPage
