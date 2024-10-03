@@ -158,6 +158,13 @@ main {
 	padding: 2rem 0;
 	width: 100%;
 }
+.feature-section .content {
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+	max-width: 65ch;
+	color: white;
+}
 .feature-section header {
 	color: white;
 	display: flex;
@@ -165,17 +172,16 @@ main {
 	gap: .5rem;
 }
 
-.feature-section .content {
+.feature-section .body {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 }
-.feature-section .content a {
+.feature-section .body a {
 	color: var(--color-secondary);
 	transition: color .2s ease-out;
-	
 }
-.feature-section .content a:hover {
+.feature-section .body a:hover {
 	color: white;
 	text-decoration: underline;
 }
