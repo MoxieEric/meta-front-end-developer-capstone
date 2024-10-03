@@ -625,6 +625,10 @@ video {
   height: 100vh;
 }
 
+.h-4{
+  height: 1rem;
+}
+
 .w-36{
   width: 9rem;
 }
@@ -637,24 +641,20 @@ video {
   width: 100%;
 }
 
-.max-w-sm{
-  max-width: 24rem;
+.w-4{
+  width: 1rem;
+}
+
+.max-w-40{
+  max-width: 10rem;
 }
 
 .max-w-prose{
   max-width: 65ch;
 }
 
-.max-w-24{
-  max-width: 6rem;
-}
-
-.max-w-32{
-  max-width: 8rem;
-}
-
-.max-w-40{
-  max-width: 10rem;
+.max-w-sm{
+  max-width: 24rem;
 }
 
 .flex-col{
@@ -673,16 +673,12 @@ video {
   justify-content: center;
 }
 
-.justify-between{
-  justify-content: space-between;
+.gap-2{
+  gap: 0.5rem;
 }
 
 .gap-4{
   gap: 1rem;
-}
-
-.gap-2{
-  gap: 0.5rem;
 }
 
 .overflow-hidden{
@@ -693,24 +689,19 @@ video {
   border-radius: .5rem;
 }
 
-.bg-light{
-  --tw-bg-opacity: 1;
-  background-color: rgb(237 239 238 / var(--tw-bg-opacity));
-}
-
 .bg-primary{
   --tw-bg-opacity: 1;
   background-color: rgb(73 94 87 / var(--tw-bg-opacity));
 }
 
-.bg-white{
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
 .bg-secondary{
   --tw-bg-opacity: 1;
   background-color: rgb(244 206 20 / var(--tw-bg-opacity));
+}
+
+.bg-white{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .p-2{
@@ -732,17 +723,8 @@ video {
   padding-bottom: 2rem;
 }
 
-.py-4{
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
 .pr-4{
   padding-right: 1rem;
-}
-
-.pr-8{
-  padding-right: 2rem;
 }
 
 .pt-4{
@@ -758,36 +740,13 @@ video {
   font-weight: 600;
 }
 
-.leading-3{
-  line-height: .75rem;
-}
-
-.leading-6{
-  line-height: 1.5rem;
-}
-
-.leading-4{
-  line-height: 1rem;
-}
-
-.leading-5{
-  line-height: 1.25rem;
-}
-
-.leading-7{
-  line-height: 1.75rem;
-}
-
-.leading-8{
-  line-height: 2rem;
-}
-
 .leading-10{
   line-height: 2.5rem;
 }
 
-.leading-9{
-  line-height: 2.25rem;
+.text-black{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .text-dark{
@@ -810,9 +769,9 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-black{
+.text-secondary{
   --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
+  color: rgb(244 206 20 / var(--tw-text-opacity));
 }
 
 .underline{
@@ -902,10 +861,6 @@ video {
 
   .md\:pr-8{
     padding-right: 2rem;
-  }
-
-  .md\:pt-6{
-    padding-top: 1.5rem;
   }
 
   .md\:opacity-100{
