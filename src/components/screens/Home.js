@@ -52,13 +52,13 @@ const Home = () => {
 					images={[
 						{
 							src: '/mario-adrian-01.jpg',
-							alt: 'The Little Lemon patio',
+							alt: 'Adrian and Mario',
 							width: '694',
 							height: '463',
 						},
 						{
 							src: '/little-lemon-restauran-food-01@0.5x.jpg',
-							alt: 'The Little Lemon patio',
+							alt: 'Our signature dish',
 							width: '512',
 							height: '329',
 						},
