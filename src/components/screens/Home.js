@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import PageSection from '../layout/PageSection'
 import ReservationsButton from '../ReservationsButton'
 import FeatureSection from '../sections/FeatureSection'
+import CardsSection from '../sections/CardsSection'
 
 const Home = () => {
 	return (
@@ -36,14 +37,27 @@ const Home = () => {
 				</FeatureSection>
 			</PageSection>
 			<PageSection id='specials' background='white'>
-				<header>
-					<h1>Specials</h1>
-				</header>
+				<CardsSection
+					title='Specials'
+					subtitle=''
+					cta={
+						<Link to='/menu' className='button'>
+							View Full Menu
+						</Link>
+					}
+				>
+					<div className='rounded bg-primary h-48 w-36' />
+					<div className='rounded bg-primary h-48 w-36' />
+					<div className='rounded bg-primary h-48 w-36' />
+				</CardsSection>
 			</PageSection>
 			<PageSection id='testimonials' background='light'>
-				<header>
-					<h1>Testimonials</h1>
-				</header>
+				<CardsSection title='Testimonials' subtitle=''>
+					<div className='rounded bg-primary h-48 w-36' />
+					<div className='rounded bg-primary h-48 w-36' />
+					<div className='rounded bg-primary h-48 w-36' />
+					<div className='rounded bg-primary h-48 w-36' />
+				</CardsSection>
 			</PageSection>
 			<PageSection id='about' background='primary'>
 				<FeatureSection

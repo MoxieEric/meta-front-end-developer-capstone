@@ -8,7 +8,6 @@ import ErrorPage from './components/screens/Error'
 import App from './App'
 import Home from './components/screens/Home'
 import BookingConfirmation from './components/screens/BookingConfirmation'
-import Menu from './components/screens/Menu'
 
 const router = createBrowserRouter([
 	{
@@ -23,10 +22,6 @@ const router = createBrowserRouter([
 			{
 				path: '/confirmed',
 				element: <BookingConfirmation />,
-			},
-			{
-				path: '/menu',
-				element: <Menu />,
 			},
 		],
 	},
