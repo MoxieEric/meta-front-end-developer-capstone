@@ -34,6 +34,7 @@ html, body {
 	font-family: 'Markazi Text';
 	font-size: 4rem;
 	font-weight: 500;
+	line-height: 1;
 }
 .subtitle {
 	font-family: 'Markazi Text';
@@ -130,14 +131,7 @@ html, body {
 	}
 }
 
-/* #root {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: 0;
-	align-items: start;
-	justify-content: flex-start;
-} */
+
 
 main {
 	display: flex;
@@ -152,6 +146,26 @@ main {
 	padding: 2rem;
 	width: 100%;
 	display: flex;
+}
+
+.page-section figure {
+	overflow: hidden;
+	border-radius: var(--border-md);
+	margin-left: 2rem;
+}
+.page-section figure:last-of-type {
+	position: absolute;
+	bottom: -2rem;
+	left: -3rem;
+	/* right: -3rem; */
+	box-shadow: var(--color-dark) .25rem .25rem .5rem;
+}
+.page-section figure:last-of-type img {
+	aspect-ratio: 5/4;
+	object-fit: cover;
+	object-position: center;
+	width: 100%;
+	height: 100%;
 }
 
 .modal {
