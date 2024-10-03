@@ -1,4 +1,4 @@
-import { Link, useRouteError, useRoutes } from 'react-router-dom'
+import { Link, useRouteError } from 'react-router-dom'
 import Header from '../layout/Header'
 import Footer from '../layout/Footer'
 import { useEffect } from 'react'

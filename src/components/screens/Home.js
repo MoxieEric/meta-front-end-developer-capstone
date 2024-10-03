@@ -3,6 +3,12 @@ import PageSection from '../layout/PageSection'
 import ReservationsButton from '../ReservationsButton'
 import FeatureSection from '../sections/FeatureSection'
 import CardsSection from '../sections/CardsSection'
+import specialsContent from '../../config/specialsContent'
+import Card from '../cards/Card'
+import CardImage from '../cards/CardImage'
+import CardHeader from '../cards/CardHeader'
+import CardBody from '../cards/CardBody'
+import CardFooter from '../cards/CardFooter'
 
 const Home = () => {
 	return (
@@ -46,9 +52,22 @@ const Home = () => {
 						</Link>
 					}
 				>
-					<div className='rounded bg-primary h-48 w-36' />
-					<div className='rounded bg-primary h-48 w-36' />
-					<div className='rounded bg-primary h-48 w-36' />
+					{specialsContent.map((item) => (
+						<Card link={item.link}>
+							<CardImage src={item.image} alt={item.title} />
+							<CardHeader>
+								<h1>{item.title}</h1>
+							</CardHeader>
+							<CardBody>
+								<p>{item.description}</p>
+							</CardBody>
+							<CardFooter>
+								<Link className='button' to='/menu'>
+									Order Online
+								</Link>
+							</CardFooter>
+						</Card>
+					))}
 				</CardsSection>
 			</PageSection>
 			<PageSection id='testimonials' background='light'>
