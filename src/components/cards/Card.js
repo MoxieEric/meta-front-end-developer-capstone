@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Card = ({ link, background = 'white', children }) => {
 	const navigate = useNavigate()

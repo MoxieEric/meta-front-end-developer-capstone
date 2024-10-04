@@ -4,11 +4,14 @@ import ReservationsButton from '../ReservationsButton'
 import FeatureSection from '../sections/FeatureSection'
 import CardsSection from '../sections/CardsSection'
 import specialsContent from '../../config/specialsContent'
+import testimonialsContent from '../../config/testimonialsContent'
 import Card from '../cards/Card'
 import CardImage from '../cards/CardImage'
 import CardHeader from '../cards/CardHeader'
 import CardBody from '../cards/CardBody'
 import CardFooter from '../cards/CardFooter'
+// import { StarIcon } from '@heroicons/react/24/outline'
+import { StarIcon } from '@heroicons/react/24/solid'
 
 const Home = () => {
 	return (
@@ -53,7 +56,7 @@ const Home = () => {
 					}
 				>
 					{specialsContent.map((item) => (
-						<Card link={item.link}>
+						<Card link={item.link} key={item.id}>
 							<CardImage src={item.image} alt={item.title} />
 							<CardHeader>
 								<h1>{item.title}</h1>
@@ -74,11 +77,55 @@ const Home = () => {
 				</CardsSection>
 			</PageSection>
 			<PageSection id='testimonials' background='white'>
-				<CardsSection title='Testimonials' subtitle=''>
-					<div className='rounded bg-primary h-48 w-36' />
-					<div className='rounded bg-primary h-48 w-36' />
-					<div className='rounded bg-primary h-48 w-36' />
-					<div className='rounded bg-primary h-48 w-36' />
+				<CardsSection title='Testimonials'>
+					{testimonialsContent.map((item, index) => (
+						<Card link={item.link} background='light' key={item.id}>
+							<CardHeader>
+								<div className='flex flex-col gap-2 pt-4'>
+									<div className='flex items-center'>
+										{[...Array(item.rating).keys()].map(
+											(filledStar) => (
+												<StarIcon
+													className='text-secondary w-5 h-5'
+													key={filledStar}
+												/>
+											)
+										)}
+										{[...Array(5 - item.rating).keys()].map(
+											(emptyStar) => (
+												<StarIcon
+													className='text-medium w-5 h-5'
+													key={emptyStar}
+												/>
+											)
+										)}
+									</div>
+									<h1>{item.title}</h1>
+								</div>
+							</CardHeader>
+							<CardBody>
+								<blockquote>{item.description}</blockquote>
+							</CardBody>
+							<CardFooter>
+								<div className='flex items-center gap-4'>
+									<img
+										src={`https://i.pravatar.cc/200${index}`}
+										width=''
+										height=''
+										alt='user avatar'
+										className='rounded-full w-10 h-10 bg-medium'
+									/>
+
+									<cite className='flex flex-col gap-0'>
+										<p className='leading-3 font-semibold'>
+											Alex Doe
+										</p>
+										<p className='text-dark'>May 5, 2024</p>
+									</cite>
+								</div>
+							</CardFooter>
+						</Card>
+					))}
 				</CardsSection>
 			</PageSection>
 			<PageSection id='about' background='primary'>
