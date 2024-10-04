@@ -1,5 +1,5 @@
 const CardHeader = ({ children }) => {
-	return <header className='card-header px-4'>{children}</header>
+	return <header className='card-header card-title'>{children}</header>
 }
 
 export default CardHeader

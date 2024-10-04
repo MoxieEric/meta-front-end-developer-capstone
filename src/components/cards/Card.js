@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { Link, useNavigate } from 'react-router-dom'
 
-const Card = ({ link, children }) => {
+const Card = ({ link, background = 'white', children }) => {
 	const navigate = useNavigate()
 	const handleClick = (e) => {
 		e.preventDefault()
@@ -9,7 +9,11 @@ const Card = ({ link, children }) => {
 	}
 	return (
 		<article
-			className={classNames('card', link && 'card--link')}
+			className={classNames(
+				'card',
+				`bg-${background}`,
+				link && 'card--link'
+			)}
 			onClick={handleClick}
 		>
 			{children}

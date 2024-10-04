@@ -42,12 +42,12 @@ const Home = () => {
 					</div>
 				</FeatureSection>
 			</PageSection>
-			<PageSection id='specials' background='white'>
+			<PageSection id='specials' background='light'>
 				<CardsSection
 					title='Specials'
 					subtitle=''
 					cta={
-						<Link to='/menu' className='button'>
+						<Link to='/menu' className='button button--link'>
 							View Full Menu
 						</Link>
 					}
@@ -62,15 +62,18 @@ const Home = () => {
 								<p>{item.description}</p>
 							</CardBody>
 							<CardFooter>
-								<Link className='button' to='/menu'>
-									Order Online
+								<Link
+									className='button button--secondary bg-light'
+									to='/menu'
+								>
+									Add to Order
 								</Link>
 							</CardFooter>
 						</Card>
 					))}
 				</CardsSection>
 			</PageSection>
-			<PageSection id='testimonials' background='light'>
+			<PageSection id='testimonials' background='white'>
 				<CardsSection title='Testimonials' subtitle=''>
 					<div className='rounded bg-primary h-48 w-36' />
 					<div className='rounded bg-primary h-48 w-36' />

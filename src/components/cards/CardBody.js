@@ -1,5 +1,5 @@
 const CardBody = ({ children }) => {
-	return <div className='card-body px-4'>{children}</div>
+	return <div className='card-body'>{children}</div>
 }
 
 export default CardBody

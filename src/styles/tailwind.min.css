@@ -614,6 +614,10 @@ video {
   display: flex;
 }
 
+.table{
+  display: table;
+}
+
 .aspect-video{
   aspect-ratio: 16 / 9;
 }

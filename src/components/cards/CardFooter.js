@@ -1,5 +1,5 @@
 const CardFooter = ({ children }) => {
-	return <footer className='card-footer px-4'>{children}</footer>
+	return <footer className='card-footer'>{children}</footer>
 }
 
 export default CardFooter
