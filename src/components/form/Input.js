@@ -1,4 +1,5 @@
-import { DateTime } from 'luxon'
+import classNames from 'classnames'
+
 const Input = ({
 	label,
 	required = false,
@@ -8,11 +9,10 @@ const Input = ({
 	onBlur,
 	onChange,
 	errorMessage,
+	...props
 }) => {
-	const minDate = DateTime.now().setZone('America/Denver').toISODate()
-
 	return (
-		<div className='flex flex-col'>
+		<div className='input-group'>
 			<label htmlFor={name}>
 				{label}
 				{required && <span className='text-red-600'>*</span>}
@@ -24,11 +24,10 @@ const Input = ({
 				onBlur={onBlur}
 				onChange={onChange}
 				value={value}
-				className='border-2 rounded-md border-primary px-4 py-2'
-				min={type === 'date' ? minDate : ''}
+				className={classNames(errorMessage && 'invalid')}
+				{...props}
 			/>
 			{errorMessage && <p className='text-red-600'>{errorMessage}</p>}
-			{minDate}
 		</div>
 	)
 }

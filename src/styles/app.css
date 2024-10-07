@@ -10,6 +10,7 @@
 	--color-light: #EDEFEE;
 	--color-peach: #EE9972;
 	--color-tan: #FBDABB;
+	--color-red: #dc2626;
 
 	/* font size */
 	--font-serif: 'Markazi Text', Georgia, serif;
@@ -479,9 +480,6 @@ main {
 	border-radius: 1rem;
 	position: relative;
 }
-.modal-header h1 {
-
-}
 
 @media (min-width: 640px) {
 	.modal {
@@ -494,4 +492,42 @@ main {
 		margin: 0 auto;
 		background: transparent;
 	}
+}
+
+
+/* Forms */
+.input-group {
+	display: flex;
+	flex-direction: column;
+}
+.input-group label {
+	font-weight: 500;
+}
+.input-group p {
+	color: var(--color-red);
+	display: inline-block;
+	padding: 0 0 0 .25rem;
+}
+.input-group label > span {
+	color: var(--color-red);
+	font-weight: 500;
+}
+
+.input-group .invalid {
+	color: var(--color-red);
+	border: 2px solid var(--color-red);
+
+}
+.input-group input,
+.input-group select,
+.input-group textarea {
+	color: var(--color-dark);
+	border: 2px solid var(--color-primary);
+	border-radius: var(--rounded-md);
+	padding: .5rem 1rem;
+}
+
+.input-group input:placeholder,
+.input-group textarea:placeholder {
+	color: var(--color-medium);
 }
