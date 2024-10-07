@@ -465,12 +465,9 @@ main {
 /* Booking Modal */
 .modal {
 	width: 100%;
-	max-width: 36rem;
-	margin: 0;
-	padding: 0;
+	margin: 0 auto;
+	top: 2rem;
     position: fixed;
-    top: 2rem;
-    left: calc(50% - 18rem);
 	background: transparent;
 }
 .modal::backdrop {
@@ -480,4 +477,21 @@ main {
 	padding: 2rem;
 	background: white;
 	border-radius: 1rem;
+	position: relative;
+}
+.modal-header h1 {
+
+}
+
+@media (min-width: 640px) {
+	.modal {
+		width: 100%;
+		max-width: 36rem;
+		margin: 0;
+		padding: 0;
+		position: fixed;
+		top: 2rem;
+		margin: 0 auto;
+		background: transparent;
+	}
 }
