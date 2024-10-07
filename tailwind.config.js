@@ -23,5 +23,14 @@ module.exports = {
 			},
 		},
 	},
+	safelist: [
+		{
+			pattern: /bg-(primary|light|dark|white)/,
+		},
+		{
+			pattern: /text-(primary|light|dark|white)/,
+		},
+	],
+
 	plugins: [],
 }

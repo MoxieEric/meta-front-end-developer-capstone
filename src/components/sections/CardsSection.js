@@ -3,7 +3,7 @@ const CardsSection = ({ title, subtitle, cta, children }) => {
 		<div className='cards-section'>
 			<header>
 				<div className='headings'>
-					<h1 className='section-title'>{title}</h1>
+					<h1 className='section-title text-nowrap'>{title}</h1>
 					{subtitle && <h2 className='category-title'>{subtitle}</h2>}
 				</div>
 				{cta && <div className='cta'>{cta}</div>}

@@ -10,7 +10,6 @@ import CardImage from '../cards/CardImage'
 import CardHeader from '../cards/CardHeader'
 import CardBody from '../cards/CardBody'
 import CardFooter from '../cards/CardFooter'
-// import { StarIcon } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/24/solid'
 
 const Home = () => {
@@ -109,16 +108,16 @@ const Home = () => {
 							<CardFooter>
 								<div className='flex items-center gap-4'>
 									<img
-										src={`https://i.pravatar.cc/200${index}`}
-										width=''
-										height=''
-										alt='user avatar'
+										src={item.image}
+										width='200'
+										height='200'
+										alt={`${item.username} avatar`}
 										className='rounded-full w-10 h-10 bg-medium'
 									/>
 
 									<cite className='flex flex-col gap-0'>
 										<p className='leading-3 font-semibold'>
-											Alex Doe
+											{item.username}
 										</p>
 										<p className='text-dark'>May 5, 2024</p>
 									</cite>

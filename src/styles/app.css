@@ -241,7 +241,7 @@ main {
 	margin-left: 2rem;
 }
 
-.feature-section figure:last-of-type {
+.feature-section figure:nth-of-type(2) {
 	position: absolute;
 	bottom: -2rem;
 	left: -3rem;
@@ -253,7 +253,7 @@ main {
 	min-width: 16rem;
 	height: auto;
 }
-.feature-section figure:last-of-type img {
+.feature-section figure:nth-of-type(2) img {
 	aspect-ratio: 5/4;
 	object-fit: cover;
 	object-position: center;
