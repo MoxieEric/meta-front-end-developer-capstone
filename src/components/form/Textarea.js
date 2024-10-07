@@ -1,7 +1,6 @@
-import classNames from 'classnames'
 import InputGroup from './InputGroup'
 
-const Dropdown = ({
+const Textarea = ({
 	label,
 	required = false,
 	name,
@@ -10,7 +9,6 @@ const Dropdown = ({
 	onBlur,
 	onChange,
 	errorMessage,
-	options = [],
 	...props
 }) => {
 	return (
@@ -20,21 +18,16 @@ const Dropdown = ({
 			errorMessage={errorMessage}
 			required={required}
 		>
-			<select
+			<textarea
+				type={type}
 				id={name}
 				name={name}
 				onBlur={onBlur}
 				onChange={onChange}
 				value={value}
 				{...props}
-			>
-				{options.map((option) => (
-					<option value={option.value} key={option.value}>
-						{option.label}
-					</option>
-				))}
-			</select>
+			/>
 		</InputGroup>
 	)
 }
-export default Dropdown
+export default Textarea

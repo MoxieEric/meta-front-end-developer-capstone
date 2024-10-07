@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import Input from './Input'
 import Dropdown from './Dropdown'
+import Textarea from './Textarea'
 
 const BookingForm = () => {
 	const minDate = DateTime.now().setZone('America/Denver').toISODate()
@@ -11,7 +12,7 @@ const BookingForm = () => {
 			firstName: '',
 			email: '',
 			date: minDate,
-			// time: '',
+			time: '7:00pm',
 			comment: '',
 			guests: 2,
 		},
@@ -69,6 +70,24 @@ const BookingForm = () => {
 						{ value: 8, label: 8 },
 						{ value: 9, label: 9 },
 						{ value: 10, label: 10 },
+						{ value: 20, label: 20 },
+					]}
+				/>
+				<Dropdown
+					name='time'
+					label='Time'
+					required
+					errorMessage={
+						formik.getFieldMeta('time').error &&
+						formik.getFieldMeta('time').touched &&
+						formik.errors.time
+					}
+					onBlur={formik.handleBlur}
+					onChange={formik.handleChange}
+					value={formik.values.time}
+					options={[
+						{ value: '6:45pm', label: '6:45pm' },
+						{ value: '7:00pm', label: '7pm' },
 					]}
 				/>
 				<Input
@@ -98,7 +117,7 @@ const BookingForm = () => {
 					onChange={formik.handleChange}
 					value={formik.values.email}
 				/>
-				<Input
+				<Textarea
 					name='comment'
 					label='Special requests'
 					type='comment'

@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import InputGroup from './InputGroup'
 
 const Input = ({
 	label,
@@ -12,11 +12,12 @@ const Input = ({
 	...props
 }) => {
 	return (
-		<div className='input-group'>
-			<label htmlFor={name}>
-				{label}
-				{required && <span className='text-red-600'>*</span>}
-			</label>
+		<InputGroup
+			label={label}
+			name={name}
+			errorMessage={errorMessage}
+			required={required}
+		>
 			<input
 				type={type}
 				id={name}
@@ -24,11 +25,9 @@ const Input = ({
 				onBlur={onBlur}
 				onChange={onChange}
 				value={value}
-				className={classNames(errorMessage && 'invalid')}
 				{...props}
 			/>
-			{errorMessage && <p className='text-red-600'>{errorMessage}</p>}
-		</div>
+		</InputGroup>
 	)
 }
 export default Input
