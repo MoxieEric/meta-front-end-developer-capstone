@@ -15,42 +15,37 @@ const Header = () => {
 					alt='Little Lemon Logo'
 					width='148'
 					height='40'
-					className='w-36 h-auto md:w-40'
+					className='logo'
 				/>
 			</Link>
-			<div className='flex items-center gap-4 md:hidden'>
+			<div className='mobile-links'>
 				<div>
 					<ReservationsButton title='Reservations' />
 				</div>
 				<button
 					onClick={() => setMenuOpen(!menuOpen)}
-					className='inline-block text-gray-900 hover:text-teal-100 p-2 hover:bg-black  rounded-md transition'
+					className='nav-toggle'
 				>
 					{menuOpen ? (
-						<XMarkIcon className='w-6 h-6' />
+						<XMarkIcon className='icon' />
 					) : (
-						<Bars3Icon className='w-6 h-6' />
+						<Bars3Icon className='icon' />
 					)}
 				</button>
 			</div>
 			<nav
 				className={classNames(
-					'w-full transition-all duration-500 overflow-hidden absolute -top-12 right-0 md:relative md:top-0 bg-white',
-					menuOpen
-						? 'h-screen top-16 opacity-100'
-						: 'h-0 md:h-auto opacity-0 md:opacity-100'
+					'nav',
+					menuOpen ? 'nav--open' : 'nav--closed'
 				)}
 			>
-				<ul className='flex flex-col md:flex-row gap-4 items-center justify-end '>
+				<ul className='nav-links'>
 					{navigationConfig.main.map((link) => (
-						<li key={link.label} className='text-lg font-semibold'>
+						<li key={link.label} className='lead-text'>
 							<NavLink
 								to={link.url}
 								className={({ isActive }) =>
-									classNames(
-										'text-dark hover:text-primary hover:underline',
-										isActive && 'underline text-primary'
-									)
+									classNames(isActive && 'is-active')
 								}
 							>
 								{link.label}
