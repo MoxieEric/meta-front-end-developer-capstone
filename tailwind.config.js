@@ -7,6 +7,7 @@ module.exports = {
 				primary: '#495E57',
 				secondary: '#F4CE14',
 				dark: '#333333',
+				medium: '#999999',
 				light: '#EDEFEE',
 				peach: '#EE9972',
 				tan: '#FBDABB',
@@ -22,5 +23,14 @@ module.exports = {
 			},
 		},
 	},
+	safelist: [
+		{
+			pattern: /bg-(primary|light|dark|white)/,
+		},
+		{
+			pattern: /text-(primary|light|dark|white)/,
+		},
+	],
+
 	plugins: [],
 }

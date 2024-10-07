@@ -1,4 +1,4 @@
-import { useRouteError } from 'react-router-dom'
+import { Link, useRouteError } from 'react-router-dom'
 import Header from '../layout/Header'
 import Footer from '../layout/Footer'
 import { useEffect } from 'react'
@@ -12,12 +12,16 @@ const ErrorPage = () => {
 	return (
 		<>
 			<Header />
-			<div id='error-page'>
-				<h1>Oops!</h1>
-				<p>Sorry, an unexpected error has occurred.</p>
-				<p>
-					<i>{error.statusText || error.message}</i>
-				</p>
+			<div className='bg-light w-full min-h-screen flex flex-col items-center justify-center'>
+				<div className='container mx-auto flex flex-col items-center justify-center gap-4'>
+					<h1 className='display-title'>Coming Soon</h1>
+					<p className='lead-text'>
+						Sorry, this page does not yet exist.
+					</p>
+					<Link to='/' className='button'>
+						Go Back Home
+					</Link>
+				</div>
 			</div>
 			<Footer />
 		</>

@@ -13,7 +13,7 @@ const Footer = () => {
 						height='40'
 					/>
 					<div className='w-full'>
-						<small>&copy; Little Lemon 2024</small>
+						<p>&copy; Little Lemon 2024</p>
 					</div>
 				</div>
 
