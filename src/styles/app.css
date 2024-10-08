@@ -99,6 +99,14 @@ html, body {
 	color: black;
 	background: var(--color-tan);
 }
+.button--light {
+	background: var(--color-light);
+	color: var(--color-dark);
+}
+.button--light:hover {
+	background: var(--color-secondary);
+	color: black;
+}
 .button--link {
 	padding-left: 0;
 	padding-right: 0;
@@ -500,6 +508,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	gap: .125rem;
+	width: 100%;
 }
 .input-group label {
 	font-weight: 500;
@@ -521,16 +530,48 @@ main {
 	border: 2px solid var(--color-primary);
 	border-radius: var(--rounded-md);
 	padding: .5rem 1rem;
+	width: 100%;
 }
 .input-group input:placeholder,
 .input-group textarea:placeholder {
 	color: var(--color-medium);
 }
-
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+	--tw-ring-color: var(--color-primary);
+	border-color: var(--color-primary);
+}
 .input-group.invalid input, 
 .input-group.invalid select, 
 .input-group.invalid textarea {
 	color: var(--color-red);
 	border: 2px solid var(--color-red);
+}
 
+#reservations-intro {
+	padding: 1rem 2rem;
+}
+#reservations-intro .feature-section figure img {
+	max-width: 18rem;
+}
+#reservations {
+	padding: 1rem;
+}
+.reservations-search {
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+	width: 100%;
+}
+
+@media (min-width: 640px) {
+	.reservations-search {
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 1rem;
+		/* max-width: 36rem; */
+		/* margin: 0 auto; */
+	}
 }

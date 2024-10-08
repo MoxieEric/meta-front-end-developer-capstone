@@ -1,4 +1,3 @@
-import classNames from 'classnames'
 import InputGroup from './InputGroup'
 
 const Dropdown = ({

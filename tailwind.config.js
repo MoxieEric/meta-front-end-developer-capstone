@@ -21,6 +21,11 @@ module.exports = {
 				md: '.5rem',
 				lg: '1rem',
 			},
+			// ringColor: {
+			// 	default: '#495E57',
+			// 	primary: '#495E57',
+			// },
+			ringColor: false,
 		},
 	},
 	safelist: [
