@@ -91,6 +91,9 @@ html, body {
 	color: white;
 	background: var(--color-dark);
 }
+.button--primary{
+	color: white;
+}
 .button--secondary {
 	color: black;
 	background: var(--color-secondary);
@@ -183,11 +186,11 @@ html, body {
 	align-items: center;
 	justify-content: end;
 }
-.global-header .nav-links a {
+.global-header .nav-links a:not(.button) {
 	color: var(--color-dark);
 	transition: all .2s ease-out;
 }
-.global-header .nav-links a:hover,
+.global-header .nav-links a:not(.button):hover,
 .global-header .nav-links a.is-active {
 	color: var(--color-primary);
 	text-decoration: underline;
@@ -321,11 +324,11 @@ main {
 	flex-direction: column;
 	gap: 1rem;
 }
-.feature-section .body a {
+.feature-section .body a:not(.button) {
 	color: var(--color-secondary);
 	transition: color .2s ease-out;
 }
-.feature-section .body a:hover {
+.feature-section .body a:not(.button):hover {
 	color: white;
 	text-decoration: underline;
 }
@@ -488,7 +491,11 @@ main {
 	border-radius: 1rem;
 	position: relative;
 }
-
+.modal-header {
+	width: 100%;
+	text-align: center;
+	padding-bottom: 1rem;
+}
 @media (min-width: 640px) {
 	.modal {
 		width: 100%;
@@ -509,6 +516,17 @@ main {
 	flex-direction: column;
 	gap: .125rem;
 	width: 100%;
+}
+.input-group--checkbox {
+	flex-direction: row;
+	gap: 1rem;
+	width: 100%;
+}
+.input-group--checkbox input[type="checkbox"] {
+	width: 1.25rem;
+	aspect-ratio: 1/1;
+	border-radius: 4px;
+	padding: .5rem;
 }
 .input-group label {
 	font-weight: 500;

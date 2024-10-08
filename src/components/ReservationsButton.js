@@ -1,21 +1,17 @@
 import classNames from 'classnames'
+import { Link } from 'react-router-dom'
 
 const ReservationsButton = ({
 	title = 'Make a Reservation',
 	theme = 'primary',
 }) => {
-	const handleClick = () => {
-		const modal = document.getElementById('booking-modal')
-		modal.showModal()
-	}
 	return (
-		<button
-			type='button'
-			onClick={handleClick}
+		<Link
+			to='/reservations'
 			className={classNames('button', `button--${theme}`)}
 		>
 			{title}
-		</button>
+		</Link>
 	)
 }
 

@@ -4,7 +4,19 @@ const BookingContext = createContext(undefined)
 
 export const BookingProvider = ({ children }) => {
 	const [state, setState] = useState({
-		modalOpen: false,
+		isOpen: false,
+		reservation: {
+			date: '',
+			time: '',
+			guests: 0,
+			seating: '',
+		},
+		user: {
+			firstName: '',
+			lastName: '',
+			email: '',
+			comments: '',
+		},
 		response: 'success',
 		responseMessage: '',
 	})
@@ -13,9 +25,10 @@ export const BookingProvider = ({ children }) => {
 		<BookingContext.Provider
 			value={{
 				...state,
-				onOpen: (type, message) => setState({ isOpen: true }),
-				onClose: () =>
-					setState({ isOpen: false, type: '', message: '' }),
+				onOpen: (reservation) => {
+					setState({ ...state, isOpen: true, reservation })
+				},
+				onClose: () => setState({ ...state, isOpen: false }),
 			}}
 		>
 			{children}
