@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useBookingContext } from '../../context/bookingContext'
 import sleep from '../../utils/api/sleep'
+import { submitAPI } from '../../utils/api/bookingApi'
 
 const BookingForm = () => {
 	const navigate = useNavigate()
@@ -20,16 +21,18 @@ const BookingForm = () => {
 		email,
 		comment,
 	}) => {
-		bookReservation({
-			firstName,
-			lastName,
-			email,
-			occasion,
-			comment,
-		})
-		await sleep(300)
-		onClose()
-		navigate('/confirmed')
+		if (submitAPI({ firstName, lastName, occasion, email, comment })) {
+			bookReservation({
+				firstName,
+				lastName,
+				email,
+				occasion,
+				comment,
+			})
+			await sleep(300)
+			onClose()
+			navigate('/confirmed')
+		}
 	}
 
 	const formik = useFormik({
