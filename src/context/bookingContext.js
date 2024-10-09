@@ -1,10 +1,12 @@
 import { createContext, useContext, useState } from 'react'
+import { initialBookingSlots } from '../config/bookingSlots'
 
 const BookingContext = createContext(undefined)
 
 export const BookingProvider = ({ children }) => {
 	const [state, setState] = useState({
 		isOpen: false,
+		bookingSlots: [...initialBookingSlots],
 		reservation: {
 			date: '',
 			time: '',

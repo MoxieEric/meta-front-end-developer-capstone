@@ -122,6 +122,11 @@ html, body {
 	color: black;
 }
 
+.button:disabled {
+	pointer-events: none;
+	opacity: .5;
+}
+
 
 
 /* Header */
@@ -577,10 +582,17 @@ main {
 #reservations {
 	padding: 1rem;
 }
+
 .reservations-search {
 	display: flex;
 	flex-direction: column;
 	gap: .5rem;
+	width: 100%;
+}
+.reservations-search .dropdowns {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
 	width: 100%;
 }
 
@@ -590,7 +602,44 @@ main {
 		align-items: center;
 		justify-content: flex-start;
 		gap: 1rem;
-		/* max-width: 36rem; */
-		/* margin: 0 auto; */
 	}
+}
+
+
+/* Booking Slots */
+.reservation-option {
+	width: 100%;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	justify-content: space-between;
+}
+.reservation-option .content {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+}
+.reservation-option .icon {
+	color: var(--color-primary);
+	width: 1.25rem;
+	height: 1.25rem;
+}
+.reservation-option .icons {
+	align-self: flex-end;
+}
+.reservation-option .icons .icon--add {
+	opacity: 0;
+	transition: opacity .3s ease-out;
+}
+.reservation-option:hover .icons .icon--add {
+	opacity: 1;
+}
+.reservation-option .icons .icon--disabled {
+	display:none;
+}
+.reservation-option:disabled .icons .icon--add {
+	display:none;
+}
+.reservation-option:disabled .icons .icon--disabled {
+	display:block;
+	color: var(--color-medium);
 }
