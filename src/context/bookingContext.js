@@ -6,7 +6,7 @@ const BookingContext = createContext(null)
 export const BookingProvider = ({ children }) => {
 	const initialState = {
 		isOpen: false,
-		bookingSlots: [...initialBookingSlots],
+		bookingSlots: [],
 		reservation: {
 			date: '',
 			time: '',
@@ -27,6 +27,7 @@ export const BookingProvider = ({ children }) => {
 		OPEN: 'OPEN',
 		CLOSE: 'CLOSE',
 		BOOK: 'BOOK',
+		GET_TIMES: 'GET_TIMES',
 	}
 	function bookingReducer(state, action) {
 		console.log('Dispatch: ', action, state)
@@ -57,6 +58,13 @@ export const BookingProvider = ({ children }) => {
 					user: action.user,
 				}
 			}
+			case actions.GET_TIMES: {
+				console.log('get times for ', action.date)
+				return {
+					...state,
+					bookingSlots: [...initialBookingSlots],
+				}
+			}
 			default: {
 				console.error('Unknown action: ' + action)
 				return state
@@ -71,6 +79,9 @@ export const BookingProvider = ({ children }) => {
 		bookingSlots: state.bookingSlots,
 		reservation: state.reservation,
 		user: state.user,
+		initializeTimes: (date) => {
+			dispatch({ type: actions.GET_TIMES, date })
+		},
 		onOpen: (reservation) => {
 			dispatch({ type: actions.OPEN, reservation })
 		},

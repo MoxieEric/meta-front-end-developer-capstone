@@ -4,9 +4,13 @@ import * as Yup from 'yup'
 import Input from './Input'
 import Dropdown from './Dropdown'
 import { bookingTimeOptions } from '../../config/bookingSlots'
+import { useBookingContext } from '../../context/bookingContext'
+import { useEffect } from 'react'
 
 const ReservationsSearch = () => {
+	const { initializeTimes } = useBookingContext()
 	const minDate = DateTime.now().setZone('America/Denver').toISODate()
+
 	const formik = useFormik({
 		initialValues: {
 			date: minDate,
@@ -22,6 +26,10 @@ const ReservationsSearch = () => {
 			time: Yup.string(),
 		}),
 	})
+
+	useEffect(() => {
+		initializeTimes(formik.values.date)
+	}, [formik.values.date])
 
 	return (
 		<div className='reservations-search'>
