@@ -8,6 +8,7 @@ import ErrorPage from './components/screens/Error'
 import App from './App'
 import Home from './components/screens/Home'
 import BookingConfirmation from './components/screens/BookingConfirmation'
+import Reservations from './components/screens/Reservations'
 
 const router = createBrowserRouter([
 	{
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
 			{
 				path: '/',
 				element: <Home />,
+			},
+			{
+				path: '/reservations',
+				element: <Reservations />,
 			},
 			{
 				path: '/confirmed',

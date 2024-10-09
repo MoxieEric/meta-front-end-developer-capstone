@@ -1,16 +1,19 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
+import BookingForm from '../form/BookingForm'
+import ReservationDetails from '../reservations/ReservationDetails'
+import { useBookingContext } from '../../context/bookingContext'
+import { XMarkIcon } from '@heroicons/react/24/solid'
 
 const Modal = () => {
-	const closeModal = () => {
-		const modal = document.getElementById('booking-modal')
-		modal.close()
-	}
+	const modalRef = useRef()
+	const { isOpen, onClose } = useBookingContext()
+	const closeModal = () => modalRef.current.close()
 
 	useEffect(() => {
 		const handleClick = (e) => {
-			if (e.target.nodeName === 'DIALOG') closeModal()
+			if (e.target.nodeName === 'DIALOG') onClose()
 		}
-		const dialog = document.getElementById('booking-modal')
+		const dialog = modalRef.current
 		dialog.addEventListener('click', handleClick)
 
 		return () => {
@@ -18,14 +21,31 @@ const Modal = () => {
 		}
 	}, [])
 
+	useEffect(() => {
+		if (isOpen) {
+			modalRef.current.showModal()
+		} else closeModal()
+	}, [isOpen])
+
 	return (
 		<>
-			<dialog className='modal' id='booking-modal'>
+			<dialog className='modal' id='booking-modal' ref={modalRef}>
 				<div className='modal-container'>
-					<h1>Make a Reservation</h1>
-					<p>...</p>
-					<button className='close-button' onClick={closeModal}>
-						Close modal
+					<div className='modal-header'>
+						<h1 className='section-title'>Reservation Details</h1>
+					</div>
+
+					<div className='modal-body'>
+						<ReservationDetails />
+						<BookingForm />
+					</div>
+
+					<button
+						className='close-button button button--link'
+						onClick={onClose}
+						aria-label='Close Modal'
+					>
+						<XMarkIcon />
 					</button>
 				</div>
 			</dialog>

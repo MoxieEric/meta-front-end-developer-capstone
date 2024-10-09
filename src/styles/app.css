@@ -10,6 +10,7 @@
 	--color-light: #EDEFEE;
 	--color-peach: #EE9972;
 	--color-tan: #FBDABB;
+	--color-red: #dc2626;
 
 	/* font size */
 	--font-serif: 'Markazi Text', Georgia, serif;
@@ -90,6 +91,9 @@ html, body {
 	color: white;
 	background: var(--color-dark);
 }
+.button--primary{
+	color: white;
+}
 .button--secondary {
 	color: black;
 	background: var(--color-secondary);
@@ -97,6 +101,14 @@ html, body {
 .button--secondary:hover {
 	color: black;
 	background: var(--color-tan);
+}
+.button--light {
+	background: var(--color-light);
+	color: var(--color-dark);
+}
+.button--light:hover {
+	background: var(--color-secondary);
+	color: black;
 }
 .button--link {
 	padding-left: 0;
@@ -108,6 +120,11 @@ html, body {
 	text-decoration: underline;
 	background: transparent;
 	color: black;
+}
+
+.button:disabled {
+	pointer-events: none;
+	opacity: .5;
 }
 
 
@@ -174,11 +191,11 @@ html, body {
 	align-items: center;
 	justify-content: end;
 }
-.global-header .nav-links a {
+.global-header .nav-links a:not(.button) {
 	color: var(--color-dark);
 	transition: all .2s ease-out;
 }
-.global-header .nav-links a:hover,
+.global-header .nav-links a:not(.button):hover,
 .global-header .nav-links a.is-active {
 	color: var(--color-primary);
 	text-decoration: underline;
@@ -312,11 +329,11 @@ main {
 	flex-direction: column;
 	gap: 1rem;
 }
-.feature-section .body a {
+.feature-section .body a:not(.button) {
 	color: var(--color-secondary);
 	transition: color .2s ease-out;
 }
-.feature-section .body a:hover {
+.feature-section .body a:not(.button):hover {
 	color: white;
 	text-decoration: underline;
 }
@@ -465,12 +482,9 @@ main {
 /* Booking Modal */
 .modal {
 	width: 100%;
-	max-width: 36rem;
-	margin: 0;
-	padding: 0;
+	margin: 0 auto;
+	top: 2rem;
     position: fixed;
-    top: 2rem;
-    left: calc(50% - 18rem);
 	background: transparent;
 }
 .modal::backdrop {
@@ -480,4 +494,196 @@ main {
 	padding: 2rem;
 	background: white;
 	border-radius: 1rem;
+	position: relative;
 }
+.modal-header {
+	width: 100%;
+	text-align: center;
+	padding-bottom: 1rem;
+}
+.modal-body {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.modal .close-button {
+	position: absolute;
+	top: .5rem;
+	right: .5rem;
+	aspect-ratio: 1/1;
+	padding: .5rem;
+	border-radius: var(--rounded-md);
+}
+.modal .close-button:hover {
+	background: var(--color-dark);
+	color: var(--color-light);
+}
+.modal .close-button > svg {
+	color: inherit;
+	width: 1.5rem;
+	height: 1.5rem;
+}
+@media (min-width: 640px) {
+	.modal {
+		width: 100%;
+		max-width: 36rem;
+		margin: 0;
+		padding: 0;
+		position: fixed;
+		top: 2rem;
+		margin: 0 auto;
+		background: transparent;
+	}
+}
+
+
+/* Forms */
+.input-group {
+	display: flex;
+	flex-direction: column;
+	gap: .125rem;
+	width: 100%;
+}
+.input-group--checkbox {
+	flex-direction: row;
+	gap: 1rem;
+	width: 100%;
+}
+.input-group--checkbox input[type="checkbox"] {
+	width: 1.25rem;
+	aspect-ratio: 1/1;
+	border-radius: 4px;
+	padding: .5rem;
+}
+.input-group label {
+	font-weight: 500;
+	color: var(--color-dark);
+}
+.input-group > p {
+	color: var(--color-red);
+	display: inline-block;
+	padding: 0 0 0 .25rem;
+}
+.input-group label > span {
+	color: var(--color-red);
+	font-weight: 500;
+	padding-left: .25rem;
+}
+.input-group input,
+.input-group select,
+.input-group textarea {
+	color: var(--color-dark);
+	border: 2px solid var(--color-primary);
+	border-radius: var(--rounded-md);
+	padding: .5rem 1rem;
+	width: 100%;
+}
+.input-group input:placeholder,
+.input-group textarea:placeholder {
+	color: var(--color-medium);
+}
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+	--tw-ring-color: var(--color-primary);
+	border-color: var(--color-primary);
+}
+.input-group.invalid input, 
+.input-group.invalid select, 
+.input-group.invalid textarea {
+	color: var(--color-red);
+	border: 2px solid var(--color-red);
+}
+
+#reservations-intro {
+	padding: 1rem 2rem;
+}
+#reservations-intro .feature-section figure img {
+	max-width: 18rem;
+}
+#reservations {
+	padding: 1rem;
+}
+
+.reservations-search {
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+	width: 100%;
+}
+.reservations-search .dropdowns {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	width: 100%;
+}
+
+@media (min-width: 640px) {
+	.reservations-search {
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 1rem;
+	}
+}
+
+/* Booking Slots */
+.reservation-option {
+	width: 100%;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	justify-content: space-between;
+}
+.reservation-option .content {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+}
+.reservation-option .icon {
+	color: var(--color-primary);
+	width: 1.25rem;
+	height: 1.25rem;
+}
+.reservation-option .icons {
+	align-self: flex-end;
+}
+.reservation-option .icons .icon--add {
+	opacity: 0;
+	transition: opacity .3s ease-out;
+}
+.reservation-option:hover .icons .icon--add {
+	opacity: 1;
+}
+.reservation-option .icons .icon--disabled {
+	display:none;
+}
+.reservation-option:disabled .icons .icon--add {
+	display:none;
+}
+.reservation-option:disabled .icons .icon--disabled {
+	display:block;
+	color: var(--color-medium);
+}
+
+/* Resrvation Details */
+.reservation-details {
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+	width: 100%;
+	max-width: 24rem;
+	margin: 0 auto;
+	padding: 1rem;
+	border-bottom: 2px solid var(--color-light);
+}
+.reservation-details .item {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+.reservation-details .item .icon {
+	width: 1.5rem;
+	height: 1.5rem;
+	color: var(--color-primary);
+}
+
