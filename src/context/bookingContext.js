@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer } from 'react'
-import { initialBookingSlots } from '../config/bookingSlots'
+import initializeTimes from '../utils/api/initializeTimes'
 
 const BookingContext = createContext(null)
 
@@ -30,7 +30,6 @@ export const BookingProvider = ({ children }) => {
 		GET_TIMES: 'GET_TIMES',
 	}
 	function bookingReducer(state, action) {
-		console.log('Dispatch: ', action, state)
 		switch (action.type) {
 			case actions.OPEN: {
 				return {
@@ -52,10 +51,10 @@ export const BookingProvider = ({ children }) => {
 				}
 			}
 			case actions.GET_TIMES: {
-				console.log('get times for ', action.date)
+				const times = initializeTimes(action.date)
 				return {
 					...state,
-					bookingSlots: [...initialBookingSlots],
+					bookingSlots: times,
 				}
 			}
 			default: {
@@ -72,7 +71,7 @@ export const BookingProvider = ({ children }) => {
 		bookingSlots: state.bookingSlots,
 		reservation: state.reservation,
 		user: state.user,
-		initializeTimes: (date) => {
+		getAvailableSlots: (date) => {
 			dispatch({ type: actions.GET_TIMES, date })
 		},
 		onOpen: (reservation) => {

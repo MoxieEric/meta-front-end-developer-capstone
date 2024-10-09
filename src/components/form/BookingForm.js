@@ -7,8 +7,7 @@ import Dropdown from './Dropdown'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useBookingContext } from '../../context/bookingContext'
-
-const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+import sleep from '../../utils/api/sleep'
 
 const BookingForm = () => {
 	const navigate = useNavigate()

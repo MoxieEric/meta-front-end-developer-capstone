@@ -8,7 +8,7 @@ import { useBookingContext } from '../../context/bookingContext'
 import { useEffect } from 'react'
 
 const ReservationsSearch = () => {
-	const { initializeTimes } = useBookingContext()
+	const { getAvailableSlots } = useBookingContext()
 	const minDate = DateTime.now().setZone('America/Denver').toISODate()
 
 	const formik = useFormik({
@@ -28,7 +28,7 @@ const ReservationsSearch = () => {
 	})
 
 	useEffect(() => {
-		initializeTimes(formik.values.date)
+		getAvailableSlots(formik.values.date)
 	}, [formik.values.date])
 
 	return (
@@ -42,7 +42,7 @@ const ReservationsSearch = () => {
 				min={minDate}
 			/>
 			<div className='dropdowns'>
-				<Dropdown
+				{/* <Dropdown
 					name='time'
 					label='Time'
 					errorMessage={
@@ -54,7 +54,7 @@ const ReservationsSearch = () => {
 					onChange={formik.handleChange}
 					value={formik.values.time}
 					options={bookingTimeOptions}
-				/>
+				/> */}
 				<Dropdown
 					name='guests'
 					label='Guests'
