@@ -4,6 +4,7 @@ import Input from './Input'
 import Textarea from './Textarea'
 import Checkbox from './Checkbox'
 import Dropdown from './Dropdown'
+import { useEffect } from 'react'
 
 const BookingForm = () => {
 	const formik = useFormik({
@@ -27,6 +28,11 @@ const BookingForm = () => {
 			occasion: Yup.string().optional(),
 		}),
 	})
+
+	useEffect(() => {
+		return () => formik.resetForm()
+	}, [])
+
 	return (
 		<form method='POST' onSubmit={formik.handleSubmit}>
 			<div className='flex flex-col gap-4'>
@@ -35,7 +41,7 @@ const BookingForm = () => {
 						name='firstName'
 						label='First Name'
 						required
-						autofocus
+						autoFocus
 						errorMessage={
 							formik.getFieldMeta('firstName').error &&
 							formik.getFieldMeta('firstName').touched &&

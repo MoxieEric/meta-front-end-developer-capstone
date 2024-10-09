@@ -25,7 +25,6 @@ const Modal = () => {
 	}, [onClose])
 
 	useEffect(() => {
-		console.log('Modal is Open: ', isOpen)
 		if (isOpen) {
 			modalRef.current.showModal()
 		} else closeModal()
