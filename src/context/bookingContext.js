@@ -43,13 +43,6 @@ export const BookingProvider = ({ children }) => {
 				return {
 					...state,
 					isOpen: false,
-					// reservation: {
-					// 	id: '',
-					// 	date: '',
-					// 	time: '',
-					// 	guests: 0,
-					// 	seating: '',
-					// },
 				}
 			}
 			case actions.BOOK: {

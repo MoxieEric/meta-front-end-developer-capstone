@@ -4,33 +4,9 @@ import reportWebVitals from './reportWebVitals'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './styles/app.css'
 import './styles/tailwind.min.css'
-import ErrorPage from './components/screens/Error'
-import App from './App'
-import Home from './components/screens/Home'
-import BookingConfirmation from './components/screens/BookingConfirmation'
-import Reservations from './components/screens/Reservations'
+import routes from './config/routes'
 
-const router = createBrowserRouter([
-	{
-		path: '/',
-		element: <App />,
-		errorElement: <ErrorPage />,
-		children: [
-			{
-				path: '/',
-				element: <Home />,
-			},
-			{
-				path: '/reservations',
-				element: <Reservations />,
-			},
-			{
-				path: '/confirmed',
-				element: <BookingConfirmation />,
-			},
-		],
-	},
-])
+const router = createBrowserRouter(routes)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>

@@ -1,8 +1,17 @@
 import { render, screen } from '@testing-library/react'
 import App from './App'
+import renderWithRouter from './utils/testing/renderWithRouter'
+import Home from './components/screens/Home'
+
+const routes = [
+	{
+		path: '/',
+		element: <Home />,
+	},
+]
 
 test('Render app heading', () => {
-	render(<App />)
-	const heading = screen.getByTestId('homepage__heading1')
+	const { router } = renderWithRouter(<App />, { routes })
+	const heading = screen.getByText('Little Lemon')
 	expect(heading).toBeInTheDocument()
 })
