@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import InputGroup from './InputGroup'
 
 const Dropdown = ({
@@ -10,6 +11,7 @@ const Dropdown = ({
 	onChange,
 	errorMessage,
 	options = [],
+	icon,
 	...props
 }) => {
 	return (
@@ -25,6 +27,7 @@ const Dropdown = ({
 				onBlur={onBlur}
 				onChange={onChange}
 				value={value}
+				className={classNames(icon && 'with-icon')}
 				{...props}
 			>
 				{options.map((option) => (
@@ -33,6 +36,7 @@ const Dropdown = ({
 					</option>
 				))}
 			</select>
+			{icon && <div className='absolute bottom-3 left-4'>{icon}</div>}
 		</InputGroup>
 	)
 }

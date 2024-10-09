@@ -37,7 +37,7 @@ const Reservations = () => {
 								time={option.time}
 								date={option.date}
 								seating={option.seating}
-								guests={2}
+								guests={option.guests}
 								available={option.available}
 							/>
 						))}

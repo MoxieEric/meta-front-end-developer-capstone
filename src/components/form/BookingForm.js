@@ -56,6 +56,7 @@ const BookingForm = () => {
 
 	useEffect(() => {
 		return () => formik.resetForm()
+		// eslint-disable-next-line
 	}, [])
 
 	return (

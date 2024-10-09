@@ -543,6 +543,7 @@ main {
 	flex-direction: column;
 	gap: .125rem;
 	width: 100%;
+	position: relative;
 }
 .input-group--checkbox {
 	flex-direction: row;
@@ -593,6 +594,9 @@ main {
 .input-group.invalid textarea {
 	color: var(--color-red);
 	border: 2px solid var(--color-red);
+}
+.input-group select.with-icon {
+	padding-left: 3rem;
 }
 
 #reservations-intro {

@@ -51,7 +51,7 @@ export const BookingProvider = ({ children }) => {
 				}
 			}
 			case actions.GET_TIMES: {
-				const times = initializeTimes(action.date)
+				const times = initializeTimes(action.date, action.guests)
 				return {
 					...state,
 					bookingSlots: times,
@@ -71,8 +71,8 @@ export const BookingProvider = ({ children }) => {
 		bookingSlots: state.bookingSlots,
 		reservation: state.reservation,
 		user: state.user,
-		getAvailableSlots: (date) => {
-			dispatch({ type: actions.GET_TIMES, date })
+		getAvailableSlots: (date, guests) => {
+			dispatch({ type: actions.GET_TIMES, date, guests })
 		},
 		onOpen: (reservation) => {
 			dispatch({ type: actions.OPEN, reservation })
