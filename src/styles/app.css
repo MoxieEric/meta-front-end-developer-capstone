@@ -540,6 +540,7 @@ main {
 .input-group label > span {
 	color: var(--color-red);
 	font-weight: 500;
+	padding-left: .25rem;
 }
 .input-group input,
 .input-group select,

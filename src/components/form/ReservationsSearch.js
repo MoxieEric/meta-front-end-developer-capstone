@@ -3,9 +3,27 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import Input from './Input'
 import Dropdown from './Dropdown'
+import { useState } from 'react'
+
+const initialAvailableTimes = [
+	{ value: 'all', label: 'All' },
+	{ value: '4:30pm', label: '4:30pm' },
+	{ value: '5:00pm', label: '5:00pm' },
+	{ value: '5:30pm', label: '5:30pm' },
+	{ value: '6:00pm', label: '6:00pm' },
+	{ value: '6:30pm', label: '6:30pm' },
+	{ value: '7:00pm', label: '7:00pm' },
+	{ value: '7:30pm', label: '7:30pm' },
+	{ value: '8:00pm', label: '8:00pm' },
+	{ value: '8:30pm', label: '8:30pm' },
+	{ value: '9:00pm', label: '9:00pm' },
+]
 
 const ReservationsSearch = () => {
 	const minDate = DateTime.now().setZone('America/Denver').toISODate()
+	const [availableTimes, setAvailableTimes] = useState([
+		...initialAvailableTimes,
+	])
 	const formik = useFormik({
 		initialValues: {
 			date: minDate,
@@ -44,19 +62,7 @@ const ReservationsSearch = () => {
 					onBlur={formik.handleBlur}
 					onChange={formik.handleChange}
 					value={formik.values.time}
-					options={[
-						{ value: 'all', label: 'All' },
-						{ value: '4:30pm', label: '4:30pm' },
-						{ value: '5:00pm', label: '5:00pm' },
-						{ value: '5:30pm', label: '5:30pm' },
-						{ value: '6:00pm', label: '6:00pm' },
-						{ value: '6:30pm', label: '6:30pm' },
-						{ value: '7:00pm', label: '7:00pm' },
-						{ value: '7:30pm', label: '7:30pm' },
-						{ value: '8:00pm', label: '8:00pm' },
-						{ value: '8:30pm', label: '8:30pm' },
-						{ value: '9:00pm', label: '9:00pm' },
-					]}
+					options={availableTimes}
 				/>
 				<Dropdown
 					name='guests'

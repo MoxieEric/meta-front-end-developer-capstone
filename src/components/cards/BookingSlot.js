@@ -1,7 +1,7 @@
 import { ClockIcon, PlusIcon } from '@heroicons/react/24/outline'
 import { useBookingContext } from '../../context/bookingContext'
 
-const ReservationOption = ({ date, time, seating, guests }) => {
+const BookingSlot = ({ date, time, seating, guests }) => {
 	const { onOpen } = useBookingContext()
 	const handleClick = (e) => {
 		e.preventDefault()
@@ -29,4 +29,4 @@ const ReservationOption = ({ date, time, seating, guests }) => {
 	)
 }
 
-export default ReservationOption
+export default BookingSlot

@@ -1,12 +1,10 @@
 import classNames from 'classnames'
-import InputGroup from './InputGroup'
 
 const Checkbox = ({
 	label,
 	required = false,
 	name,
-	// type = 'text',
-	value = '',
+	value,
 	onBlur,
 	onChange,
 	errorMessage,

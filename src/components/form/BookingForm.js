@@ -3,6 +3,7 @@ import * as Yup from 'yup'
 import Input from './Input'
 import Textarea from './Textarea'
 import Checkbox from './Checkbox'
+import Dropdown from './Dropdown'
 
 const BookingForm = () => {
 	const formik = useFormik({
@@ -11,6 +12,7 @@ const BookingForm = () => {
 			lastName: '',
 			email: '',
 			comment: '',
+			occasion: 'none',
 			terms: false,
 		},
 		onSubmit: (values) => console.log(values),
@@ -22,6 +24,7 @@ const BookingForm = () => {
 				.email('Invalid email address'),
 			comment: Yup.string().optional(),
 			terms: Yup.boolean().oneOf([true], 'Required').required(),
+			occasion: Yup.string().optional(),
 		}),
 	})
 	return (
@@ -69,6 +72,24 @@ const BookingForm = () => {
 					onBlur={formik.handleBlur}
 					onChange={formik.handleChange}
 					value={formik.values.email}
+				/>
+				<Dropdown
+					name='occasion'
+					label='Occasion'
+					errorMessage={
+						formik.getFieldMeta('occasion').error &&
+						formik.getFieldMeta('occasion').touched &&
+						formik.errors.occasion
+					}
+					onBlur={formik.handleBlur}
+					onChange={formik.handleChange}
+					value={formik.values.occasion}
+					options={[
+						{ value: 'none', label: 'Special Occasion?' },
+						{ value: 'birthday', label: 'Birthday' },
+						{ value: 'anniversary', label: 'Anniversary' },
+						{ value: 'graduation', label: 'Graduation' },
+					]}
 				/>
 				<Textarea
 					name='comment'

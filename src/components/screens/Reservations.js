@@ -1,4 +1,4 @@
-import ReservationOption from '../cards/ReservationOption'
+import ReservationOption from '../cards/BookingSlot'
 import ReservationsSearch from '../form/ReservationsSearch'
 import PageSection from '../layout/PageSection'
 import FeatureSection from '../sections/FeatureSection'
