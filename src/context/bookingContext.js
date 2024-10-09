@@ -12,14 +12,13 @@ export const BookingProvider = ({ children }) => {
 			time: '',
 			guests: 0,
 			seating: '',
-		},
-		user: {
 			firstName: '',
 			lastName: '',
 			email: '',
 			comment: '',
 			occasion: '',
 		},
+		activeReservationSlot: null,
 		response: 'success',
 		responseMessage: '',
 	}
@@ -35,19 +34,20 @@ export const BookingProvider = ({ children }) => {
 				return {
 					...state,
 					isOpen: true,
-					reservation: action.reservation,
+					activeReservationSlot: action.activeReservationSlot,
 				}
 			}
 			case actions.CLOSE: {
 				return {
 					...state,
 					isOpen: false,
+					activeReservationSlot: null,
 				}
 			}
 			case actions.BOOK: {
 				return {
 					...state,
-					user: action.user,
+					reservation: action.reservation,
 				}
 			}
 			case actions.GET_TIMES: {
@@ -70,18 +70,19 @@ export const BookingProvider = ({ children }) => {
 		isOpen: state.isOpen,
 		bookingSlots: state.bookingSlots,
 		reservation: state.reservation,
-		user: state.user,
+		activeReservationSlot: state.activeReservationSlot,
 		getAvailableSlots: (date, guests) => {
 			dispatch({ type: actions.GET_TIMES, date, guests })
 		},
-		onOpen: (reservation) => {
-			dispatch({ type: actions.OPEN, reservation })
+		onOpen: (activeReservationSlot) => {
+			dispatch({ type: actions.OPEN, activeReservationSlot })
 		},
 		onClose: () => {
 			dispatch({ type: actions.CLOSE })
 		},
-		bookReservation: (user) => {
-			dispatch({ type: actions.BOOK, user })
+		bookReservation: (reservation) => {
+			dispatch({ type: actions.BOOK, reservation })
+			localStorage.setItem('reservation', JSON.stringify(reservation))
 		},
 	}
 

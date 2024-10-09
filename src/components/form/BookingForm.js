@@ -12,7 +12,8 @@ import { submitAPI } from '../../utils/api/bookingApi'
 
 const BookingForm = () => {
 	const navigate = useNavigate()
-	const { onClose, bookReservation } = useBookingContext()
+	const { onClose, bookReservation, activeReservationSlot } =
+		useBookingContext()
 
 	const handleSubmit = async ({
 		firstName,
@@ -23,6 +24,7 @@ const BookingForm = () => {
 	}) => {
 		if (submitAPI({ firstName, lastName, occasion, email, comment })) {
 			bookReservation({
+				...activeReservationSlot,
 				firstName,
 				lastName,
 				email,

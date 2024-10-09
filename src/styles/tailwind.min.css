@@ -855,22 +855,6 @@ select{
   position: relative;
 }
 
-.left-2{
-  left: 0.5rem;
-}
-
-.top-12{
-  top: 3rem;
-}
-
-.bottom-0{
-  bottom: 0px;
-}
-
-.bottom-2{
-  bottom: 0.5rem;
-}
-
 .bottom-3{
   bottom: 0.75rem;
 }
@@ -1322,20 +1306,12 @@ select{
   padding-bottom: 1rem;
 }
 
-.pl-8{
-  padding-left: 2rem;
-}
-
 .pt-4{
   padding-top: 1rem;
 }
 
-.pl-12{
-  padding-left: 3rem;
-}
-
-.\!pl-12{
-  padding-left: 3rem !important;
+.pb-2{
+  padding-bottom: 0.5rem;
 }
 
 .font-bold{
@@ -1344,6 +1320,10 @@ select{
 
 .font-semibold{
   font-weight: 600;
+}
+
+.capitalize{
+  text-transform: capitalize;
 }
 
 .leading-3{

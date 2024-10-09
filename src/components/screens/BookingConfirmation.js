@@ -1,10 +1,22 @@
-import { useBookingContext } from '../../context/bookingContext'
+import { useEffect, useState } from 'react'
 import PageSection from '../layout/PageSection'
 import ReservationDetails from '../reservations/ReservationDetails'
 import FeatureSection from '../sections/FeatureSection'
+import CardsSection from '../sections/CardsSection'
+import { Link } from 'react-router-dom'
+import Card from '../cards/Card'
+import CardImage from '../cards/CardImage'
+import CardHeader from '../cards/CardHeader'
+import CardBody from '../cards/CardBody'
+import specialsContent from '../../config/specialsContent'
 
 const BookingConfirmation = () => {
-	const { user } = useBookingContext()
+	const [reservation, setReservation] = useState(null)
+	useEffect(() => {
+		const storedReservation = localStorage.getItem('reservation')
+		setReservation(JSON.parse(storedReservation))
+	}, [])
+
 	return (
 		<>
 			<PageSection id='reservation' background='primary'>
@@ -20,12 +32,24 @@ const BookingConfirmation = () => {
 					]}
 				>
 					<p className='lead-text text-white'>
-						See you soon, {user.firstName}
+						See you soon, {reservation?.firstName}
 					</p>
 				</FeatureSection>
 			</PageSection>
-			<PageSection id='reservation-details' background='white'>
-				<ReservationDetails />
+			<PageSection id='reservation-details' background='light'>
+				<CardsSection
+					title='Reservation Details'
+					cta={<button>Share</button>}
+				>
+					<ReservationDetails
+						reservation={reservation}
+						title={'Reservation Details'}
+					/>
+					<ReservationDetails
+						reservation={reservation}
+						title={'Reservation Details'}
+					/>
+				</CardsSection>
 			</PageSection>
 
 			<section>
@@ -33,11 +57,29 @@ const BookingConfirmation = () => {
 					<h1>Good to Know</h1>
 				</header>
 			</section>
-			<section>
-				<header>
-					<h1>Menu</h1>
-				</header>
-			</section>
+			<PageSection id='specials' background='white'>
+				<CardsSection
+					title='Explore the Menu'
+					subtitle=''
+					cta={
+						<Link to='/menu' className='button button--link'>
+							View Full Menu
+						</Link>
+					}
+				>
+					{specialsContent.map((item) => (
+						<Card link={item.link} key={item.id}>
+							<CardImage src={item.image} alt={item.title} />
+							<CardHeader>
+								<h1>{item.title}</h1>
+							</CardHeader>
+							<CardBody>
+								<p>{item.description}</p>
+							</CardBody>
+						</Card>
+					))}
+				</CardsSection>
+			</PageSection>
 		</>
 	)
 }
