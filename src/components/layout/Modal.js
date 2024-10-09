@@ -1,15 +1,12 @@
-import { XMarkIcon } from '@heroicons/react/24/solid'
-import { CalendarIcon, UsersIcon } from '@heroicons/react/24/outline'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import BookingForm from '../form/BookingForm'
+import ReservationDetails from '../reservations/ReservationDetails'
 import { useBookingContext } from '../../context/bookingContext'
-import { DateTime } from 'luxon'
-import TableIcon from '../icons/TableIcon'
+import { XMarkIcon } from '@heroicons/react/24/solid'
 
 const Modal = () => {
 	const modalRef = useRef()
-	const [reservationDate, setReservationDate] = useState('')
-	const { isOpen, onClose, reservation } = useBookingContext()
+	const { isOpen, onClose } = useBookingContext()
 	const closeModal = () => modalRef.current.close()
 
 	useEffect(() => {
@@ -22,20 +19,13 @@ const Modal = () => {
 		return () => {
 			dialog.removeEventListener('click', handleClick)
 		}
-	}, [onClose])
+	}, [])
 
 	useEffect(() => {
 		if (isOpen) {
 			modalRef.current.showModal()
 		} else closeModal()
 	}, [isOpen])
-
-	useEffect(() => {
-		const label = DateTime.fromJSDate(new Date(reservation.date)).toFormat(
-			'cccc LLL. d,'
-		)
-		setReservationDate(label)
-	}, [reservation])
 
 	return (
 		<>
@@ -44,34 +34,18 @@ const Modal = () => {
 					<div className='modal-header'>
 						<h1 className='section-title'>Reservation Details</h1>
 					</div>
-					<div className='flex flex-col gap-4'>
-						<div className='p-4 flex flex-col gap-2 border-b-2 border-b-light w-full max-w-sm mx-auto'>
-							<div className='flex items-center gap-4'>
-								<CalendarIcon className='icon text-primary w-6 h-6' />
-								<p className='lead-text'>
-									{reservationDate} at {reservation.time}
-								</p>
-							</div>
-							<div className='flex items-center gap-4'>
-								<UsersIcon className='icon text-primary w-6 h-6' />
-								<p className='lead-text'>
-									{reservation.guests} People
-								</p>
-							</div>
-							<div className='flex items-center gap-4'>
-								<TableIcon className='icon text-primary w-6 h-6' />
-								<p className='lead-text'>
-									{reservation.seating}
-								</p>
-							</div>
-						</div>
+
+					<div className='modal-body'>
+						<ReservationDetails />
 						<BookingForm />
 					</div>
+
 					<button
-						className='close-button button button--link absolute top-2 right-2 hover:bg-dark hover:text-light aspect-square p-2 rounded-md'
+						className='close-button button button--link'
 						onClick={onClose}
+						aria-label='Close Modal'
 					>
-						<XMarkIcon className='w-6 h-6' />
+						<XMarkIcon />
 					</button>
 				</div>
 			</dialog>

@@ -17,7 +17,7 @@ export const BookingProvider = ({ children }) => {
 			firstName: '',
 			lastName: '',
 			email: '',
-			comments: '',
+			comment: '',
 			occasion: '',
 		},
 		response: 'success',
@@ -43,13 +43,13 @@ export const BookingProvider = ({ children }) => {
 				return {
 					...state,
 					isOpen: false,
-					reservation: {
-						id: '',
-						date: '',
-						time: '',
-						guests: 0,
-						seating: '',
-					},
+					// reservation: {
+					// 	id: '',
+					// 	date: '',
+					// 	time: '',
+					// 	guests: 0,
+					// 	seating: '',
+					// },
 				}
 			}
 			case actions.BOOK: {

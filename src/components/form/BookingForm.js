@@ -5,8 +5,34 @@ import Textarea from './Textarea'
 import Checkbox from './Checkbox'
 import Dropdown from './Dropdown'
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useBookingContext } from '../../context/bookingContext'
+
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
 const BookingForm = () => {
+	const navigate = useNavigate()
+	const { onClose, bookReservation } = useBookingContext()
+
+	const handleSubmit = async ({
+		firstName,
+		lastName,
+		occasion,
+		email,
+		comment,
+	}) => {
+		bookReservation({
+			firstName,
+			lastName,
+			email,
+			occasion,
+			comment,
+		})
+		await sleep(300)
+		onClose()
+		navigate('/confirmed')
+	}
+
 	const formik = useFormik({
 		initialValues: {
 			firstName: '',
@@ -16,7 +42,7 @@ const BookingForm = () => {
 			occasion: 'none',
 			terms: false,
 		},
-		onSubmit: (values) => console.log(values),
+		onSubmit: (values) => handleSubmit(values),
 		validationSchema: Yup.object().shape({
 			firstName: Yup.string().required('Required'),
 			lastName: Yup.string().required('Required'),
