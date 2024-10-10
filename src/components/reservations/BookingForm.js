@@ -65,7 +65,11 @@ const BookingForm = () => {
 	}, [])
 
 	return (
-		<form method='POST' onSubmit={formik.handleSubmit}>
+		<form
+			method='POST'
+			onSubmit={formik.handleSubmit}
+			data-testid='booking-form'
+		>
 			<div className='flex flex-col gap-4'>
 				<div className='flex items-start gap-4'>
 					<Input
@@ -152,11 +156,13 @@ const BookingForm = () => {
 					onBlur={formik.handleBlur}
 					onChange={formik.handleChange}
 					value={formik.values.terms}
+					data-testid='terms-checkbox'
 				/>
 
 				<button
 					type='submit'
 					className='button w-full justify-center flex'
+					data-testid='book-button'
 				>
 					Confirm Reservation
 				</button>
