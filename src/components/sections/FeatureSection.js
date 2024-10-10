@@ -12,9 +12,9 @@ const FeatureSection = ({
 			<div className='content'>
 				<header>
 					<h1 className='display-title'>{title}</h1>
-					<h2 className='subtitle'>{subtitle}</h2>
+					{subtitle && <h2 className='subtitle'>{subtitle}</h2>}
 				</header>
-				<div className='body'>{children}</div>
+				<div className='body rounded-full'>{children}</div>
 			</div>
 			<div className='relative images'>
 				{images.map((image, index) => (

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import BookingForm from '../form/BookingForm'
+import BookingForm from '../reservations/BookingForm'
 import ReservationDetails from '../reservations/ReservationDetails'
 import { useBookingContext } from '../../context/bookingContext'
 import { XMarkIcon } from '@heroicons/react/24/solid'
@@ -19,6 +19,7 @@ const Modal = () => {
 		return () => {
 			dialog.removeEventListener('click', handleClick)
 		}
+		// eslint-disable-next-line
 	}, [])
 
 	useEffect(() => {
@@ -29,7 +30,12 @@ const Modal = () => {
 
 	return (
 		<>
-			<dialog className='modal' id='booking-modal' ref={modalRef}>
+			<dialog
+				className='modal'
+				id='booking-modal'
+				ref={modalRef}
+				data-testid='modal'
+			>
 				<div className='modal-container'>
 					<div className='modal-header'>
 						<h1 className='section-title'>Reservation Details</h1>

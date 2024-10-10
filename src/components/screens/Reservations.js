@@ -1,6 +1,7 @@
+import { ScrollRestoration } from 'react-router-dom'
 import { useBookingContext } from '../../context/bookingContext'
 import ReservationOption from '../reservations/BookingSlot'
-import ReservationsSearch from '../form/ReservationsSearch'
+import ReservationsSearch from '../reservations/ReservationsSearch'
 import PageSection from '../layout/PageSection'
 import FeatureSection from '../sections/FeatureSection'
 
@@ -8,6 +9,7 @@ const Reservations = () => {
 	const { bookingSlots } = useBookingContext()
 	return (
 		<>
+			<ScrollRestoration />
 			<PageSection id='reservations-intro' background='primary'>
 				<FeatureSection
 					title='Make a Reservation'
@@ -26,10 +28,10 @@ const Reservations = () => {
 				</FeatureSection>
 			</PageSection>
 			<PageSection id='reservations' background='white'>
-				<div className='w-full max-w-xl mx-auto'>
+				<div className='container'>
 					<ReservationsSearch />
 
-					<div className='reservation-options max-w-xl flex flex-col gap-2 mx-auto py-4'>
+					<div className='reservation-options'>
 						<h2 className='section-title'>Available Tables</h2>
 						{bookingSlots.map((option) => (
 							<ReservationOption

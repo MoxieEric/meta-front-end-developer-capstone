@@ -15,7 +15,6 @@ const navigationConfig = {
 		{
 			label: 'Login',
 			url: '/login',
-			onClick: () => null,
 		},
 	],
 	footer: [
@@ -30,6 +29,10 @@ const navigationConfig = {
 		{
 			label: 'Order Online',
 			url: '/order',
+		},
+		{
+			label: 'Reservations',
+			url: '/reservations',
 		},
 		{
 			label: 'About',
@@ -52,6 +55,10 @@ const navigationConfig = {
 		{
 			label: 'TikTok',
 			url: 'https://tiktok.com',
+		},
+		{
+			label: 'YouTube',
+			url: 'https://youtube.com',
 		},
 	],
 }

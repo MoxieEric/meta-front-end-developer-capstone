@@ -25,6 +25,7 @@ const Header = () => {
 				<button
 					onClick={() => setMenuOpen(!menuOpen)}
 					className='nav-toggle'
+					aria-label='Toggle navigation menu'
 				>
 					{menuOpen ? (
 						<XMarkIcon className='icon' />

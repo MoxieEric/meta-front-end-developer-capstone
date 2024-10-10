@@ -17,6 +17,7 @@ const BookingSlot = ({ date, time, seating, guests, available }) => {
 			className='reservation-option button button--light'
 			disabled={!available}
 			onClick={handleClick}
+			data-testid='booking-slot'
 		>
 			<div className='content'>
 				<ClockIcon className='icon' />
