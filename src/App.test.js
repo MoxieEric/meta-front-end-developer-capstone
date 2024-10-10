@@ -10,8 +10,10 @@ const routes = [
 	},
 ]
 
-test('Render app heading', () => {
-	const { router } = renderWithRouter(<App />, { routes })
-	const heading = screen.getByText('Little Lemon')
-	expect(heading).toBeInTheDocument()
+describe('Homepage', () => {
+	test('Heading should render', () => {
+		const { router } = renderWithRouter(<App />, { routes })
+		const heading = screen.getByText('Little Lemon')
+		expect(heading).toBeInTheDocument()
+	})
 })

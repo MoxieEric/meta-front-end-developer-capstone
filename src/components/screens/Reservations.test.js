@@ -1,26 +1,41 @@
-import { screen } from '@testing-library/react'
-import renderWithRouter from '../../utils/testing/renderWithRouter'
+import { render, screen } from '@testing-library/react'
 import Reservations from './Reservations'
-import App from '../../App'
-import Home from './Home'
-import { act } from 'react'
+import { BookingProvider } from '../../context/bookingContext'
+import { initialBookingSlots } from '../../config/bookingSlots'
+import renderWithContext from '../../utils/testing/renderWithContext'
 
-const routes = [
-	{
-		path: '/',
-		element: <Home />,
-	},
-	{
-		path: '/reservations',
-		element: <Reservations />,
-	},
-]
+describe('Reservations Page', () => {
+	test('Render Reservations heading', async () => {
+		const value = {
+			isOpen: false,
+			bookingSlots: [],
+			reservation: {},
+			activeReservationSlot: null,
+			getAvailableSlots: (date, guests) => jest.fn(),
+			// getAvailableSlots: (date, guests) => {
+			// 	dispatch({ type: actions.GET_TIMES, date, guests })
+			// },
+			// onOpen: (activeReservationSlot) => {
+			// 	dispatch({ type: actions.OPEN, activeReservationSlot })
+			// },
+			// onClose: () => {
+			// 	dispatch({ type: actions.CLOSE })
+			// },
+			// bookReservation: (reservation) => {
+			// 	dispatch({ type: actions.BOOK, reservation })
+			// 	localStorage.setItem('reservation', JSON.stringify(reservation))
+			// },
+		}
 
-test('Render Reservations heading', async () => {
-	const { router } = renderWithRouter(<App />, { routes })
-	act(async () => {
-		await router.navigate('/reservations')
+		const providerProps = {
+			value,
+		}
+		renderWithContext(<Reservations />, { providerProps })
+
+		const heading = screen.getByText('Make a Reservation')
+		expect(heading).toBeInTheDocument()
+
+		const bookingOptions = screen.queryAllByTestId('booking-slot')
+		expect(bookingOptions).toHaveLength(initialBookingSlots.length)
 	})
-	const heading = screen.getByText('Make a Reservation')
-	expect(heading).toBeInTheDocument()
 })
