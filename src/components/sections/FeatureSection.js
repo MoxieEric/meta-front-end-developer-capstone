@@ -1,6 +1,14 @@
-const FeatureSection = ({ title, subtitle, images = [], children }) => {
+import classNames from 'classnames'
+
+const FeatureSection = ({
+	title,
+	subtitle,
+	images = [],
+	color = 'white',
+	children,
+}) => {
 	return (
-		<div className='feature-section'>
+		<div className={classNames('feature-section', `text-${color}`)}>
 			<div className='content'>
 				<header>
 					<h1 className='display-title'>{title}</h1>

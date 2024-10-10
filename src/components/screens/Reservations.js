@@ -1,5 +1,5 @@
 import { useBookingContext } from '../../context/bookingContext'
-import ReservationOption from '../cards/BookingSlot'
+import ReservationOption from '../reservations/BookingSlot'
 import ReservationsSearch from '../form/ReservationsSearch'
 import PageSection from '../layout/PageSection'
 import FeatureSection from '../sections/FeatureSection'

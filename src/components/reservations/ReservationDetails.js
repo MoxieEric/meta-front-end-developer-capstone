@@ -17,22 +17,22 @@ const ReservationDetails = ({ reservation }) => {
 	}, [reservation])
 	return (
 		<div className='reservation-details'>
-			<div className='item'>
+			<div className='detail-item'>
 				<CalendarIcon className='icon' />
 				<p className='lead-text'>
 					{reservationDate} at {reservation?.time}
 				</p>
 			</div>
-			<div className='item'>
+			<div className='detail-item'>
 				<UsersIcon className='icon' />
 				<p className='lead-text'>{reservation?.guests} People</p>
 			</div>
-			<div className='item'>
+			<div className='detail-item'>
 				<TableIcon className='icon' />
 				<p className='lead-text'>{reservation?.seating}</p>
 			</div>
 			{reservation?.occasion && (
-				<div className='item'>
+				<div className='detail-item'>
 					<SparklesIcon className='icon' />
 					<p className='lead-text capitalize'>
 						{reservation.occasion}
