@@ -19,7 +19,7 @@ import { PhoneIcon } from '@heroicons/react/24/outline'
 import paymentMethods from '../../config/paymentMethods'
 import Pill from '../atoms/Pill'
 
-const BookingConfirmation = () => {
+const ConfirmedBooking = () => {
 	const [reservation, setReservation] = useState(null)
 	useEffect(() => {
 		const storedReservation = localStorage.getItem('reservation')
@@ -162,4 +162,4 @@ const BookingConfirmation = () => {
 		</>
 	)
 }
-export default BookingConfirmation
+export default ConfirmedBooking
