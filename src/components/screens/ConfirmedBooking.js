@@ -14,8 +14,8 @@ import {
 	MapPinIcon,
 	PencilIcon,
 	DocumentDuplicateIcon,
+	PhoneIcon,
 } from '@heroicons/react/20/solid'
-import { PhoneIcon } from '@heroicons/react/24/outline'
 import paymentMethods from '../../config/paymentMethods'
 import Pill from '../atoms/Pill'
 
@@ -49,33 +49,33 @@ const ConfirmedBooking = () => {
 				<CardsSection
 					title='Reservation Details'
 					cta={
-						<button className='button button--primary gap-2 items-center justify-center'>
+						<button className='button button--primary'>
 							Share Reservation
-							<DocumentDuplicateIcon className='icon w-5 h-5' />
+							<DocumentDuplicateIcon className='icon' />
 						</button>
 					}
 				>
-					<div className='flex flex-col gap-4'>
+					<div className='details-group'>
 						<ReservationDetails reservation={reservation} />
-						<button className='button button--ghost w-full gap-2 items-center justify-center'>
-							<PencilIcon className='icon w-5 h-5' />
+						<button className='button button--ghost '>
+							<PencilIcon className='icon' />
 							Edit Reservation
 						</button>
-						<button className='button button--ghost w-full gap-2 items-center justify-center'>
-							<TrashIcon className='icon w-5 h-5' />
+						<button className='button button--ghost '>
+							<TrashIcon className='icon' />
 							Cancel Reservation
 						</button>
 					</div>
-					<div className='flex flex-col gap-4'>
+
+					<div className='details-group'>
 						<div className='reservation-details'>
-							<figure className='rounded-lg overflow-hidden shadow-md mb-2 relative'>
+							<figure>
 								<img
 									src='/map-01.png'
 									alt='Map of Little Lemon location'
-									className='w-full h-auto object-cover min-w-16 aspect-video'
 								/>
-								<div className='absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center'>
-									<MapPinIcon className='w-10 h-10 text-dark shadow-md' />
+								<div className='map-pin'>
+									<MapPinIcon />
 								</div>
 							</figure>
 							<div className='detail-item'>
@@ -93,10 +93,8 @@ const ConfirmedBooking = () => {
 								</p>
 							</div>
 						</div>
-						<h3 className='category-title pt-2'>
-							Accepted Payments
-						</h3>
-						<div className='flex items-center gap-2'>
+						<h3 className='category-title'>Accepted Payments</h3>
+						<div className='pill-group'>
 							{paymentMethods.map((item) => (
 								<Pill key={item}>{item}</Pill>
 							))}
@@ -134,7 +132,7 @@ const ConfirmedBooking = () => {
 					subtitle='A few things to know before you arrive'
 					color='dark'
 				>
-					<ol className='list-decimal list-outside pl-4 max-w-prose space-y-2 py-2'>
+					<ol>
 						<li>
 							Please arrive on time, if you are more than 15
 							minutes late we may offer your table to another
@@ -150,9 +148,9 @@ const ConfirmedBooking = () => {
 							including the patio.
 						</li>
 					</ol>
-					<p>
+					<p className='lead-text'>
 						If you hae additional questions please see our{' '}
-						<Link to='/faqs' className='!text-primary underline'>
+						<Link to='/faqs' className=''>
 							FAQs page
 						</Link>
 						.
