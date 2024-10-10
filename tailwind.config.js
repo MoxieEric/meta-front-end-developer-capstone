@@ -30,10 +30,10 @@ module.exports = {
 	},
 	safelist: [
 		{
-			pattern: /bg-(primary|light|dark|white)/,
+			pattern: /bg-(primary|secondary|medium|light|dark|white)$/,
 		},
 		{
-			pattern: /text-(primary|light|dark|white)/,
+			pattern: /text-(primary|secondary|medium|light|dark|white)$/,
 		},
 	],
 
