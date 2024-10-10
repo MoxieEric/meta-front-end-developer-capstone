@@ -1,3 +1,4 @@
+import { ScrollRestoration } from 'react-router-dom'
 import { useBookingContext } from '../../context/bookingContext'
 import ReservationOption from '../reservations/BookingSlot'
 import ReservationsSearch from '../reservations/ReservationsSearch'
@@ -8,6 +9,7 @@ const Reservations = () => {
 	const { bookingSlots } = useBookingContext()
 	return (
 		<>
+			<ScrollRestoration />
 			<PageSection id='reservations-intro' background='primary'>
 				<FeatureSection
 					title='Make a Reservation'

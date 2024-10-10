@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, ScrollRestoration } from 'react-router-dom'
 import PageSection from '../layout/PageSection'
 import ReservationsButton from '../ReservationsButton'
 import FeatureSection from '../sections/FeatureSection'
@@ -15,6 +15,7 @@ import { StarIcon } from '@heroicons/react/24/solid'
 const Home = () => {
 	return (
 		<>
+			<ScrollRestoration />
 			<PageSection id='hero' background='primary'>
 				<FeatureSection
 					title='Little Lemon'
