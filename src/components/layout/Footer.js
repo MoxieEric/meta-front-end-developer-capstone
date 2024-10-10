@@ -1,11 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import navigationConfig from '../../config/navigationConfig'
-import {
-	AtSymbolIcon,
-	EnvelopeIcon,
-	MapPinIcon,
-	PhoneIcon,
-} from '@heroicons/react/20/solid'
+import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/20/solid'
 
 const Footer = () => {
 	return (

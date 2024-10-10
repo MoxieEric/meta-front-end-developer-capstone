@@ -19,6 +19,7 @@ const Modal = () => {
 		return () => {
 			dialog.removeEventListener('click', handleClick)
 		}
+		// eslint-disable-next-line
 	}, [])
 
 	useEffect(() => {
