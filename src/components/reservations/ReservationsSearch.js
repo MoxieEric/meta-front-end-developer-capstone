@@ -1,11 +1,11 @@
 import { DateTime } from 'luxon'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import Input from './Input'
-import Dropdown from './Dropdown'
 import { useBookingContext } from '../../context/bookingContext'
 import { useEffect } from 'react'
 import { UsersIcon } from '@heroicons/react/20/solid'
+import Input from '../form/Input'
+import Dropdown from '../form/Dropdown'
 
 const ReservationsSearch = () => {
 	const { getAvailableSlots } = useBookingContext()

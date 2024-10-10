@@ -9,6 +9,7 @@ const ReservationsButton = ({
 		<Link
 			to='/reservations'
 			className={classNames('button', `button--${theme}`)}
+			data-testid='reservation-button'
 		>
 			{title}
 		</Link>
