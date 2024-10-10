@@ -65,7 +65,7 @@ const Home = () => {
 							</CardBody>
 							<CardFooter>
 								<Link
-									className='button button--secondary bg-light'
+									className='button button--light'
 									to='/menu'
 								>
 									Add to Order
@@ -153,7 +153,7 @@ const Home = () => {
 						delectus sit cumque, non saepe fuga.
 					</p>
 					<div>
-						<Link to='/about' className='highlight-text'>
+						<Link to='/about' className='button button--light'>
 							Learn more
 						</Link>
 					</div>

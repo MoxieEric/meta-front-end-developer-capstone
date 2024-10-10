@@ -20,6 +20,7 @@
 	--border-rounded: .5rem;
 	--rounded-md: .5rem;
 	--rounded-lg: 1rem;
+	--rounded-full: 12rem;
 
 	/* box shadow */
 	--shadow-md: rgba(0,0,0,0.25) .125rem .125rem 6px;
@@ -32,6 +33,11 @@ html, body {
 	width: 100%;
 	min-width: 375px;
 }
+body .container {
+	width: 100%;
+	max-width: 64rem;
+}
+
 
 /* Typography */
 .display-title {
@@ -79,9 +85,10 @@ html, body {
 .button {
 	display: flex;
 	align-items: center;
+	gap: .5rem;
 	width: max-content;
 	padding: .5rem 1rem;
-	border-radius: var(--rounded-md);
+	border-radius: var(--rounded-full);
 	color: white;
 	background: var(--color-primary);
 	font-weight: 500;
@@ -90,6 +97,10 @@ html, body {
 .button:hover {
 	color: white;
 	background: var(--color-dark);
+}
+.button .icon {
+	width: 1rem;
+	height: 1rem;
 }
 .button--primary{
 	color: white;
@@ -145,10 +156,12 @@ html, body {
 	justify-content: space-between;
 	padding: 1rem;
 	margin: 0 auto;
+	position: relative;
+	z-index: 99;
 }
 .global-header .logo {
 	width: 100%;
-	max-width: 9rem;
+	max-width: 10rem;
 	height: auto;
 }
 .global-header .mobile-links {
@@ -181,6 +194,7 @@ html, body {
 	top: -3rem;
 	right: 0;
 	background: white;
+	z-index: 9999;
 }
 
 .global-header nav.nav--open {
@@ -211,7 +225,7 @@ html, body {
 
 @media (min-width: 768px) {
 	.global-header .logo {
-		max-width: 12rem;
+		width: 12rem;
 	}
 	.global-header .mobile-links {
 		display: none;
@@ -239,7 +253,6 @@ html, body {
 /* Footer */
 .global-footer {
 	width: 100%;
-	padding: 2rem 1rem;
 	background-color: var(--color-light);
 	color: var(--color-dark)
 }
@@ -248,14 +261,18 @@ html, body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 1rem;
+	padding: 2rem 1rem;
 	margin: 0 auto;
-	gap: 1rem;
+	gap: 2rem;
 }
-
-.global-footer .column h2 {
-	width: 100%;
-	border-bottom: 1px solid var(--color-medium);
+.global-footer .copyright {
+	background-color: var(--color-primary);
+	color: var(--color-light);
+	text-align: center;
+	padding: 1rem 0;
+}
+.global-footer .logo {
+	width: 6rem;
 }
 .global-footer .column {
 	display: flex;
@@ -264,17 +281,20 @@ html, body {
 	justify-content: center;
 	gap: .5rem;
 	text-align: center;
+	width: max-content;
+	max-width: 18rem;
+}
+.global-footer .column h2 {
 	width: 100%;
+	text-transform: uppercase;
+	border-bottom: 1px solid var(--color-medium);
 }
 .global-footer .column a {
 	font-weight: 500;
-	padding: .125rem 0;
+	font-size: 1.125rem;
+	width: 100%;
+	justify-content: center;
 	color: black;
-	display: block;
-}
-.global-footer .column a:hover {
-	color: var(--color-primary);
-	text-decoration: underline;
 }
 @media (min-width: 640px) {
 	.global-footer .container {
@@ -286,6 +306,12 @@ html, body {
 		align-items: start;
 		justify-content: flex-start;
 		text-align: left;
+	}
+	.global-footer .logo {
+		width: 7rem;
+	}
+	.global-footer .column a {
+		justify-content: start;
 	}
 }
 
@@ -589,9 +615,12 @@ main {
 .input-group textarea {
 	color: var(--color-dark);
 	border: 2px solid var(--color-primary);
-	border-radius: var(--rounded-md);
+	border-radius: var(--rounded-full);
 	padding: .5rem 1rem;
 	width: 100%;
+}
+.input-group textarea {
+	border-radius: var(--rounded-lg);
 }
 .input-group input:placeholder,
 .input-group textarea:placeholder {
