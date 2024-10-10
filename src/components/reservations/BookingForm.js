@@ -68,105 +68,104 @@ const BookingForm = () => {
 		<form
 			method='POST'
 			onSubmit={formik.handleSubmit}
+			className='booking-form'
 			data-testid='booking-form'
 		>
-			<div className='flex flex-col gap-4'>
-				<div className='flex items-start gap-4'>
-					<Input
-						name='firstName'
-						label='First Name'
-						required
-						autoFocus
-						errorMessage={
-							formik.getFieldMeta('firstName').error &&
-							formik.getFieldMeta('firstName').touched &&
-							formik.errors.firstName
-						}
-						onBlur={formik.handleBlur}
-						onChange={formik.handleChange}
-						value={formik.values.firstName}
-					/>
-					<Input
-						name='lastName'
-						label='Last Name'
-						required
-						errorMessage={
-							formik.getFieldMeta('lastName').error &&
-							formik.getFieldMeta('lastName').touched &&
-							formik.errors.lastName
-						}
-						onBlur={formik.handleBlur}
-						onChange={formik.handleChange}
-						value={formik.values.lastName}
-					/>
-				</div>
+			<div className='row'>
 				<Input
-					name='email'
-					label='Email Address'
-					type='email'
-					required={true}
+					name='firstName'
+					label='First Name'
+					required
+					autoFocus
 					errorMessage={
-						formik.getFieldMeta('email').error &&
-						formik.getFieldMeta('email').touched &&
-						formik.errors.email
+						formik.getFieldMeta('firstName').error &&
+						formik.getFieldMeta('firstName').touched &&
+						formik.errors.firstName
 					}
 					onBlur={formik.handleBlur}
 					onChange={formik.handleChange}
-					value={formik.values.email}
+					value={formik.values.firstName}
 				/>
-				<Dropdown
-					name='occasion'
-					label='Occasion'
-					errorMessage={
-						formik.getFieldMeta('occasion').error &&
-						formik.getFieldMeta('occasion').touched &&
-						formik.errors.occasion
-					}
-					onBlur={formik.handleBlur}
-					onChange={formik.handleChange}
-					value={formik.values.occasion}
-					options={[
-						{ value: 'none', label: 'Special Occasion?' },
-						{ value: 'birthday', label: 'Birthday' },
-						{ value: 'anniversary', label: 'Anniversary' },
-						{ value: 'graduation', label: 'Graduation' },
-					]}
-				/>
-				<Textarea
-					name='comment'
-					label='Special requests'
-					errorMessage={
-						formik.getFieldMeta('comment').error &&
-						formik.getFieldMeta('comment').touched &&
-						formik.errors.comment
-					}
-					onBlur={formik.handleBlur}
-					onChange={formik.handleChange}
-					value={formik.values.comment}
-				/>
-				<Checkbox
-					name='terms'
-					label='I agree to the terms and conditions'
+				<Input
+					name='lastName'
+					label='Last Name'
 					required
 					errorMessage={
-						formik.getFieldMeta('terms').error &&
-						formik.getFieldMeta('terms').touched &&
-						formik.errors.terms
+						formik.getFieldMeta('lastName').error &&
+						formik.getFieldMeta('lastName').touched &&
+						formik.errors.lastName
 					}
 					onBlur={formik.handleBlur}
 					onChange={formik.handleChange}
-					value={formik.values.terms}
-					data-testid='terms-checkbox'
+					value={formik.values.lastName}
 				/>
-
-				<button
-					type='submit'
-					className='button w-full'
-					data-testid='book-button'
-				>
-					Confirm Reservation
-				</button>
 			</div>
+			<Input
+				name='email'
+				label='Email Address'
+				type='email'
+				required={true}
+				errorMessage={
+					formik.getFieldMeta('email').error &&
+					formik.getFieldMeta('email').touched &&
+					formik.errors.email
+				}
+				onBlur={formik.handleBlur}
+				onChange={formik.handleChange}
+				value={formik.values.email}
+			/>
+			<Dropdown
+				name='occasion'
+				label='Occasion'
+				errorMessage={
+					formik.getFieldMeta('occasion').error &&
+					formik.getFieldMeta('occasion').touched &&
+					formik.errors.occasion
+				}
+				onBlur={formik.handleBlur}
+				onChange={formik.handleChange}
+				value={formik.values.occasion}
+				options={[
+					{ value: 'none', label: 'Special Occasion?' },
+					{ value: 'birthday', label: 'Birthday' },
+					{ value: 'anniversary', label: 'Anniversary' },
+					{ value: 'graduation', label: 'Graduation' },
+				]}
+			/>
+			<Textarea
+				name='comment'
+				label='Special requests'
+				errorMessage={
+					formik.getFieldMeta('comment').error &&
+					formik.getFieldMeta('comment').touched &&
+					formik.errors.comment
+				}
+				onBlur={formik.handleBlur}
+				onChange={formik.handleChange}
+				value={formik.values.comment}
+			/>
+			<Checkbox
+				name='terms'
+				label='I agree to the terms and conditions'
+				required
+				errorMessage={
+					formik.getFieldMeta('terms').error &&
+					formik.getFieldMeta('terms').touched &&
+					formik.errors.terms
+				}
+				onBlur={formik.handleBlur}
+				onChange={formik.handleChange}
+				value={formik.values.terms}
+				data-testid='terms-checkbox'
+			/>
+
+			<button
+				type='submit'
+				className='button w-full'
+				data-testid='book-button'
+			>
+				Confirm Reservation
+			</button>
 		</form>
 	)
 }

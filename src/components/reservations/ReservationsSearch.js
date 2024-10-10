@@ -44,7 +44,7 @@ const ReservationsSearch = () => {
 				onBlur={formik.handleBlur}
 				onChange={formik.handleChange}
 				value={formik.values.guests}
-				icon={<UsersIcon className='w-5 h-5' />}
+				icon={<UsersIcon className='icon' />}
 				options={[
 					{ value: 1, label: 1 },
 					{ value: 2, label: 2 },

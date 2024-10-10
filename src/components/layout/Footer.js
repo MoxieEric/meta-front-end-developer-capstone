@@ -10,6 +10,7 @@ const Footer = () => {
 		const storedReservation = localStorage.getItem('reservation')
 		setReservation(JSON.parse(storedReservation))
 	}, [])
+
 	return (
 		<footer className='global-footer'>
 			<div className='container'>

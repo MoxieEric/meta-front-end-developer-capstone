@@ -2,6 +2,8 @@ import { Link, ScrollRestoration, useRouteError } from 'react-router-dom'
 import Header from '../layout/Header'
 import Footer from '../layout/Footer'
 import { useEffect } from 'react'
+import PageSection from '../layout/PageSection'
+import FeatureSection from '../sections/FeatureSection'
 
 const ErrorPage = () => {
 	const error = useRouteError()
@@ -13,17 +15,19 @@ const ErrorPage = () => {
 		<>
 			<ScrollRestoration />
 			<Header />
-			<div className='bg-light w-full min-h-screen flex flex-col items-center justify-center'>
-				<div className='container mx-auto flex flex-col items-center justify-center gap-4'>
-					<h1 className='display-title'>Coming Soon</h1>
-					<p className='lead-text'>
-						Sorry, this page does not yet exist.
-					</p>
-					<Link to='/' className='button'>
-						Go Back Home
-					</Link>
-				</div>
-			</div>
+			<main>
+				<PageSection background='primary' id='error-page'>
+					<FeatureSection
+						title='Coming Soon'
+						subtitle='Sorry, this page does not exist yet'
+					>
+						<Link to='/' className='button button--secondary'>
+							Go Back Home
+						</Link>
+					</FeatureSection>
+				</PageSection>
+			</main>
+
 			<Footer />
 		</>
 	)
