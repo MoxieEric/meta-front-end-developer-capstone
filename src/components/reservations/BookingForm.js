@@ -161,7 +161,7 @@ const BookingForm = () => {
 
 				<button
 					type='submit'
-					className='button w-full justify-center flex'
+					className='button w-full'
 					data-testid='book-button'
 				>
 					Confirm Reservation

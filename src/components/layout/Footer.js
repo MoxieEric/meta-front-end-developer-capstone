@@ -1,8 +1,15 @@
 import { NavLink } from 'react-router-dom'
 import navigationConfig from '../../config/navigationConfig'
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/20/solid'
+import { useEffect, useState } from 'react'
+import Badge from '../atoms/Badge'
 
 const Footer = () => {
+	const [reservation, setReservation] = useState(null)
+	useEffect(() => {
+		const storedReservation = localStorage.getItem('reservation')
+		setReservation(JSON.parse(storedReservation))
+	}, [])
 	return (
 		<footer className='global-footer'>
 			<div className='container'>
@@ -28,6 +35,17 @@ const Footer = () => {
 								</NavLink>
 							</li>
 						))}
+						{reservation && (
+							<li>
+								<NavLink
+									to='/confirmed'
+									className='button button--link'
+								>
+									My Reservation
+									<Badge />
+								</NavLink>
+							</li>
+						)}
 					</ul>
 				</nav>
 
@@ -64,7 +82,7 @@ const Footer = () => {
 									href={link.url}
 									target='_blank'
 									rel='noreferrer'
-									className='button button--link w-full justify-center'
+									className='button button--link'
 								>
 									{link.label}
 								</a>

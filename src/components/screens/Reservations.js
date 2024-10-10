@@ -26,10 +26,10 @@ const Reservations = () => {
 				</FeatureSection>
 			</PageSection>
 			<PageSection id='reservations' background='white'>
-				<div className='w-full max-w-xl mx-auto'>
+				<div className='container'>
 					<ReservationsSearch />
 
-					<div className='reservation-options max-w-xl flex flex-col gap-2 mx-auto py-4'>
+					<div className='reservation-options'>
 						<h2 className='section-title'>Available Tables</h2>
 						{bookingSlots.map((option) => (
 							<ReservationOption

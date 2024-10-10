@@ -85,6 +85,7 @@ body .container {
 .button {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	gap: .5rem;
 	width: max-content;
 	padding: .5rem 1rem;
@@ -159,7 +160,16 @@ body .container {
 	font-size: 1rem;
 	font-weight: 500;
 }
-
+/*  Badge */
+.badge {
+	margin-left: -0.5rem;
+}
+.badge > div {
+	width: .5rem;
+	height: .5rem;
+	border-radius: var(--rounded-full);
+	background-color: var(--color-secondary);
+}
 
 
 /* Header */
@@ -544,6 +554,42 @@ main {
 	}
 }
 
+.testimonial {
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+	padding-top: 1rem;
+}
+.testimonial .rating {
+	display: flex;
+	align-items: center;
+}
+.testimonial .star {
+	color: var(--color-medium);
+	width: 1.25rem;
+	height: 1.25rem;
+}
+.testimonial .star.star--filled {
+	color: var(--color-secondary)
+}
+.attribution {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+.attribution img {
+	border-radius: var(--rounded-full);
+	width: 2.5rem;
+	height: 2.5rem;
+	background-color: var(--color-medium);
+}
+.attribution cite {
+	display: flex;
+	flex-direction: column;
+}
+.attribution cite .highlight-text {
+	line-height: .75rem;
+}
 
 /* Booking Modal */
 .modal {
@@ -677,6 +723,10 @@ main {
 #reservations {
 	padding: 1rem;
 }
+#reservations .container {
+	margin: 0 auto;
+	max-width: 36rem;
+}
 
 .reservations-search {
 	display: flex;
@@ -701,6 +751,15 @@ main {
 }
 
 /* Booking Slots */
+.reservation-options {
+	/*  max-w-xl flex flex-col gap-2 mx-auto py-4 */
+	display: flex;
+	flex-direction: column;
+	gap: .5em;
+	max-width: 36rem;
+	padding: 1rem 0;
+	margin: 0 auto;
+}
 .reservation-option {
 	width: 100%;
 	padding-top: 1rem;

@@ -80,12 +80,12 @@ const Home = () => {
 					{testimonialsContent.map((item, index) => (
 						<Card link={item.link} background='light' key={item.id}>
 							<CardHeader>
-								<div className='flex flex-col gap-2 pt-4'>
-									<div className='flex items-center'>
+								<div className='testimonial'>
+									<div className='rating'>
 										{[...Array(item.rating).keys()].map(
 											(filledStar) => (
 												<StarIcon
-													className='text-secondary w-5 h-5'
+													className='star star--filled '
 													key={filledStar}
 												/>
 											)
@@ -93,7 +93,7 @@ const Home = () => {
 										{[...Array(5 - item.rating).keys()].map(
 											(emptyStar) => (
 												<StarIcon
-													className='text-medium w-5 h-5'
+													className='star'
 													key={emptyStar}
 												/>
 											)
@@ -106,20 +106,19 @@ const Home = () => {
 								<blockquote>{item.description}</blockquote>
 							</CardBody>
 							<CardFooter>
-								<div className='flex items-center gap-4'>
+								<div className='attribution'>
 									<img
 										src={item.image}
 										width='200'
 										height='200'
 										alt={`${item.username} avatar`}
-										className='rounded-full w-10 h-10 bg-medium'
 									/>
 
-									<cite className='flex flex-col gap-0'>
-										<p className='leading-3 font-semibold'>
+									<cite>
+										<p className='highlight-text'>
 											{item.username}
 										</p>
-										<p className='text-dark'>May 5, 2024</p>
+										<p>May 5, 2024</p>
 									</cite>
 								</div>
 							</CardFooter>
