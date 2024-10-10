@@ -98,7 +98,7 @@ const ConfirmedBooking = () => {
 						</h3>
 						<div className='flex items-center gap-2'>
 							{paymentMethods.map((item) => (
-								<Pill>{item}</Pill>
+								<Pill key={item}>{item}</Pill>
 							))}
 						</div>
 					</div>

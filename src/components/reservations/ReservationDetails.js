@@ -10,9 +10,9 @@ import { DateTime } from 'luxon'
 const ReservationDetails = ({ reservation }) => {
 	const [reservationDate, setReservationDate] = useState('')
 	useEffect(() => {
-		const label = DateTime.fromJSDate(new Date(reservation?.date)).toFormat(
-			'cccc LLL. d,'
-		)
+		const label = DateTime.fromJSDate(new Date(reservation?.date))
+			.setZone('utc')
+			.toFormat('cccc LLL. d,')
 		setReservationDate(label)
 	}, [reservation])
 	return (

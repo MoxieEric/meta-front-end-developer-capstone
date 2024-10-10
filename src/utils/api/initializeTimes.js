@@ -6,6 +6,7 @@ const initializeTimes = (date, guests = 2) => {
 	const bookingSlots = initialBookingSlots.map((slot) => ({
 		...slot,
 		guests,
+		date,
 		available: times.includes(slot.time.replace('pm', '')),
 	}))
 

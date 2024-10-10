@@ -19,9 +19,7 @@ const ReservationsSearch = () => {
 		onSubmit: (values) => console.log(values),
 		validationSchema: Yup.object().shape({
 			guests: Yup.number().min(1).max(10),
-			date: Yup.date()
-				.min('10/07/2024')
-				.required('You must enter a date'),
+			date: Yup.date().min(minDate).required('You must enter a date'),
 		}),
 	})
 
