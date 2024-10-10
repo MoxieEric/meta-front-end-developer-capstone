@@ -1,7 +1,9 @@
 
 # meta-front-end-developer-capstone
-Graded capstone project for Meta developer professional certificate. 
 
+**Capstone project for Meta developer professional certificate.**
+
+Table reservation system for Little Lemon restaurant.
 ___
 
 ## Preview
@@ -24,3 +26,11 @@ npm preview
 Open a second terminal and run
 
 `npm run tailwind`
+
+## Stack
+
+- Initialized with CRA
+- CSS for all component styles
+- TailwindCSS for reset styles
+- Formik form validation
+- React Testing Library and Jest for unit testing
