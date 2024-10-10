@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer } from 'react'
-import { initialBookingSlots } from '../config/bookingSlots'
+import initializeTimes from '../utils/api/initializeTimes'
 
 const BookingContext = createContext(null)
 
@@ -12,14 +12,13 @@ export const BookingProvider = ({ children }) => {
 			time: '',
 			guests: 0,
 			seating: '',
-		},
-		user: {
 			firstName: '',
 			lastName: '',
 			email: '',
 			comment: '',
 			occasion: '',
 		},
+		activeReservationSlot: null,
 		response: 'success',
 		responseMessage: '',
 	}
@@ -30,32 +29,32 @@ export const BookingProvider = ({ children }) => {
 		GET_TIMES: 'GET_TIMES',
 	}
 	function bookingReducer(state, action) {
-		console.log('Dispatch: ', action, state)
 		switch (action.type) {
 			case actions.OPEN: {
 				return {
 					...state,
 					isOpen: true,
-					reservation: action.reservation,
+					activeReservationSlot: action.activeReservationSlot,
 				}
 			}
 			case actions.CLOSE: {
 				return {
 					...state,
 					isOpen: false,
+					activeReservationSlot: null,
 				}
 			}
 			case actions.BOOK: {
 				return {
 					...state,
-					user: action.user,
+					reservation: action.reservation,
 				}
 			}
 			case actions.GET_TIMES: {
-				console.log('get times for ', action.date)
+				const times = initializeTimes(action.date, action.guests)
 				return {
 					...state,
-					bookingSlots: [...initialBookingSlots],
+					bookingSlots: times,
 				}
 			}
 			default: {
@@ -71,18 +70,19 @@ export const BookingProvider = ({ children }) => {
 		isOpen: state.isOpen,
 		bookingSlots: state.bookingSlots,
 		reservation: state.reservation,
-		user: state.user,
-		initializeTimes: (date) => {
-			dispatch({ type: actions.GET_TIMES, date })
+		activeReservationSlot: state.activeReservationSlot,
+		getAvailableSlots: (date, guests) => {
+			dispatch({ type: actions.GET_TIMES, date, guests })
 		},
-		onOpen: (reservation) => {
-			dispatch({ type: actions.OPEN, reservation })
+		onOpen: (activeReservationSlot) => {
+			dispatch({ type: actions.OPEN, activeReservationSlot })
 		},
 		onClose: () => {
 			dispatch({ type: actions.CLOSE })
 		},
-		bookReservation: (user) => {
-			dispatch({ type: actions.BOOK, user })
+		bookReservation: (reservation) => {
+			dispatch({ type: actions.BOOK, reservation })
+			localStorage.setItem('reservation', JSON.stringify(reservation))
 		},
 	}
 

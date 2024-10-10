@@ -1,5 +1,5 @@
 import App from '../App'
-import BookingConfirmation from '../components/screens/BookingConfirmation'
+import ConfirmedBooking from '../components/screens/ConfirmedBooking'
 import ErrorPage from '../components/screens/Error'
 import Home from '../components/screens/Home'
 import Reservations from '../components/screens/Reservations'
@@ -20,7 +20,7 @@ const routes = [
 			},
 			{
 				path: '/confirmed',
-				element: <BookingConfirmation />,
+				element: <ConfirmedBooking />,
 			},
 		],
 	},

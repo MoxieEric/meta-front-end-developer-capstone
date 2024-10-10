@@ -7,12 +7,13 @@ import Dropdown from './Dropdown'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useBookingContext } from '../../context/bookingContext'
-
-const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+import sleep from '../../utils/api/sleep'
+import { submitAPI } from '../../utils/api/bookingApi'
 
 const BookingForm = () => {
 	const navigate = useNavigate()
-	const { onClose, bookReservation } = useBookingContext()
+	const { onClose, bookReservation, activeReservationSlot } =
+		useBookingContext()
 
 	const handleSubmit = async ({
 		firstName,
@@ -21,16 +22,19 @@ const BookingForm = () => {
 		email,
 		comment,
 	}) => {
-		bookReservation({
-			firstName,
-			lastName,
-			email,
-			occasion,
-			comment,
-		})
-		await sleep(300)
-		onClose()
-		navigate('/confirmed')
+		if (submitAPI({ firstName, lastName, occasion, email, comment })) {
+			bookReservation({
+				...activeReservationSlot,
+				firstName,
+				lastName,
+				email,
+				occasion,
+				comment,
+			})
+			await sleep(300)
+			onClose()
+			navigate('/confirmed')
+		}
 	}
 
 	const formik = useFormik({
@@ -57,6 +61,7 @@ const BookingForm = () => {
 
 	useEffect(() => {
 		return () => formik.resetForm()
+		// eslint-disable-next-line
 	}, [])
 
 	return (

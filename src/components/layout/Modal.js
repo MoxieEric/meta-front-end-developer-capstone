@@ -6,7 +6,7 @@ import { XMarkIcon } from '@heroicons/react/24/solid'
 
 const Modal = () => {
 	const modalRef = useRef()
-	const { isOpen, onClose } = useBookingContext()
+	const { isOpen, onClose, activeReservationSlot } = useBookingContext()
 	const closeModal = () => modalRef.current.close()
 
 	useEffect(() => {
@@ -36,7 +36,9 @@ const Modal = () => {
 					</div>
 
 					<div className='modal-body'>
-						<ReservationDetails />
+						<ReservationDetails
+							reservation={activeReservationSlot}
+						/>
 						<BookingForm />
 					</div>
 

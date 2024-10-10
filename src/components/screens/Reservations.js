@@ -1,5 +1,5 @@
 import { useBookingContext } from '../../context/bookingContext'
-import ReservationOption from '../cards/BookingSlot'
+import ReservationOption from '../reservations/BookingSlot'
 import ReservationsSearch from '../form/ReservationsSearch'
 import PageSection from '../layout/PageSection'
 import FeatureSection from '../sections/FeatureSection'
@@ -37,7 +37,7 @@ const Reservations = () => {
 								time={option.time}
 								date={option.date}
 								seating={option.seating}
-								guests={2}
+								guests={option.guests}
 								available={option.available}
 							/>
 						))}

@@ -102,6 +102,14 @@ html, body {
 	color: black;
 	background: var(--color-tan);
 }
+.button--ghost {
+	background: transparent;
+	color: var(--color-dark);
+}
+.button--ghost:hover {
+	background: var(--color-light);
+	color: black;
+}
 .button--light {
 	background: var(--color-light);
 	color: var(--color-dark);
@@ -254,7 +262,7 @@ html, body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: .25rem;
+	gap: .5rem;
 	text-align: center;
 	width: 100%;
 }
@@ -262,6 +270,7 @@ html, body {
 	font-weight: 500;
 	padding: .125rem 0;
 	color: black;
+	display: block;
 }
 .global-footer .column a:hover {
 	color: var(--color-primary);
@@ -315,10 +324,10 @@ main {
 	flex-direction: column;
 	gap: .5rem;
 	max-width: 65ch;
-	color: white;
+	color: inherit;
 }
 .feature-section header {
-	color: white;
+	color: inherit;
 	display: flex;
 	flex-direction: column;
 	gap: .5rem;
@@ -368,9 +377,13 @@ main {
 	min-width: 8rem;
 	height: 100%;
 }
-
+.feature-section h1,
+	.feature-section h2	 {
+		color: inherit;
+	}
 .feature-section p {
 	padding-right: 1rem;
+	color: inherit;
 }
 
 @media (min-width: 640px) {
@@ -384,7 +397,6 @@ main {
 		padding-right: 2rem;
 	}
 }
-
 /* Cards Section */
 .cards-section {
 	display: flex;
@@ -400,7 +412,9 @@ main {
 	align-items: center;
 	gap: 1rem;
 }
-
+.cards-section .subtitle {
+	width: max-content;
+}
 .cards-section .content {
 	display: flex;
 	flex-direction: column;
@@ -543,6 +557,7 @@ main {
 	flex-direction: column;
 	gap: .125rem;
 	width: 100%;
+	position: relative;
 }
 .input-group--checkbox {
 	flex-direction: row;
@@ -593,6 +608,9 @@ main {
 .input-group.invalid textarea {
 	color: var(--color-red);
 	border: 2px solid var(--color-red);
+}
+.input-group select.with-icon {
+	padding-left: 3rem;
 }
 
 #reservations-intro {
@@ -669,21 +687,30 @@ main {
 .reservation-details {
 	display: flex;
 	flex-direction: column;
-	gap: .5rem;
+	gap: .75rem;
 	width: 100%;
 	max-width: 24rem;
 	margin: 0 auto;
 	padding: 1rem;
 	border-bottom: 2px solid var(--color-light);
 }
-.reservation-details .item {
+.detail-item {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
 }
-.reservation-details .item .icon {
+.detail-item .icon {
 	width: 1.5rem;
 	height: 1.5rem;
 	color: var(--color-primary);
 }
 
+#reservation-confirmed {
+	padding: 1rem 2rem;
+}
+#reservation-confirmed .feature-section figure img {
+	max-width: 18rem;
+}
+#reservation-details .cards-section .content {
+	justify-content: space-between;
+}
